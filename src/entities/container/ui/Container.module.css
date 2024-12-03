@@ -1,0 +1,15 @@
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 820px;
+	min-width: 1280px;
+	padding-inline: var(--container-padding-x);
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	row-gap: 15px;
+	width: 590px;
+}

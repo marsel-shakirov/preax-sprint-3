@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&display=swap');
+
+@import url(./shared/styles/normalize/normalize.css);
+
+@import url(./shared/styles/variables.css);
+
+:root {
+	font-size: var(--main-font-size);
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+body {
+	font-family: var(--font-family-base);
+	font-optical-sizing: auto;
+	font-weight: 500;
+	font-style: normal;
+	font-size: 2.8rem;
+	line-height: 1.2;
+	color: var(--main-color);
+	background-image: linear-gradient(
+		49deg,
+		#125365 37%,
+		#ff723f 37% 53%,
+		#ff9c46 53% 86%,
+		#ffca4a 86%
+	);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+}

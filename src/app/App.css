@@ -1,0 +1,26 @@
+.content {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	row-gap: 32px;
+	padding: 3.2rem;
+	background-color: var(--content-white-color);
+	border-radius: var(--main-border-radius);
+}
+
+.welcome {
+	align-items: center;
+}
+
+.content.welcome::after {
+	content: '';
+	position: absolute;
+	top: -79px;
+	right: 0;
+	width: 135px;
+	height: 146px;
+	background-image: url(@/shared/assets/images/illustration/welcome.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}

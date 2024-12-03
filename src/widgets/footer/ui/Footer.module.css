@@ -1,0 +1,10 @@
+.preax {
+	font-size: 1.4rem;
+	color: var(--content-white-color);
+}
+
+.link {
+	color: inherit;
+	text-decoration: none;
+	border-bottom: 1px solid var(--content-white-color);
+}

@@ -1,0 +1,11 @@
+:root {
+	--font-family-base: 'Inter', sans-serif;
+	--main-font-size: 62.5%;
+
+	--container-padding-x: 3.2rem;
+
+	--main-color: #125365;
+	--content-white-color: #f1f1ef;
+
+	--main-border-radius: 10px;
+}
