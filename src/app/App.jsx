@@ -1,12 +1,15 @@
-import { Container } from '@/entities/container';
-import { QuizPage } from '@/pages/quiz';
-import { Footer } from '@/widgets/footer';
-import { Header } from '@/widgets/header';
+import { Container } from '@/shared/ui/';
 
 import { CounterProvider } from './provider/CounterProvider';
 
-import './App.css';
+import { Card } from '@/pages/card';
+import { WelcomeContent } from '@/pages/welcome';
+import { Content } from '@/shared/ui';
+import { Footer } from '@/widgets/footer';
+import { Header } from '@/widgets/header';
 import { PageProvider } from './provider/PageProvider';
+
+import './App.css';
 
 function App() {
 	console.log('render 1');
@@ -16,7 +19,7 @@ function App() {
 			<CounterProvider>
 				<Container>
 					<Header />
-					<QuizPage />
+					<Content Card={Card} WelcomeContent={WelcomeContent} />
 					<Footer />
 				</Container>
 			</CounterProvider>

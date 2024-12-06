@@ -8,9 +8,7 @@ export const CounterProvider = ({ children }) => {
 	const [state, dispatch] = useReducer(counterReducer, { count: 1 });
 
 	return (
-		<CounterContext.Provider value={{ ...state, dispatch }}>
-			{children}
-		</CounterContext.Provider>
+		<CounterContext value={{ ...state, dispatch }}>{children}</CounterContext>
 	);
 };
 

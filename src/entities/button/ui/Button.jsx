@@ -4,7 +4,7 @@ import { usePageContext } from '@/shared/hooks/usePageContext';
 
 import styles from './Button.module.css';
 
-export const Button = ({ isDisabled, text }) => {
+export const Button = ({ isDisabled = false, text }) => {
 	const { isStart, setStart } = usePageContext();
 	return (
 		<div className={styles.row}>
@@ -12,7 +12,7 @@ export const Button = ({ isDisabled, text }) => {
 				onClick={() => setStart(!isStart)}
 				className={styles.btn}
 				type="button"
-				{...{ disabled: isDisabled }}
+				disabled={isDisabled}
 			>
 				{text}
 			</button>
