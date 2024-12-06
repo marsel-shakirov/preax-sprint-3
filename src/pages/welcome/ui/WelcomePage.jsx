@@ -2,22 +2,22 @@ import { Button } from '@/entities/button';
 import { Counter } from '@/entities/counter';
 import PropTypes from 'prop-types';
 
-import styles from './WelcomeContent.module.css';
+import styles from './WelcomePage.module.css';
 
-export const WelcomeContent = ({ title }) => {
+export const WelcomePage = ({ title }) => {
 	console.log('render 3');
 	return (
 		<>
 			<title>{`Quiz | ${title}`}</title>
 
 			<section className="content welcome">
-				<h1 className={styles.title}>
+				<h1 className={styles.welcomeTitle}>
 					Добро пожаловать
-					<span className={styles.desc}>
+					<span className={styles.welcomeDesc}>
 						на викторину по странам и столицам!
 					</span>
 				</h1>
-				<div className={styles.question}>
+				<div className={styles.welcomeQuestion}>
 					<p>Выбери количество вопросов:</p>
 					<Counter />
 				</div>
@@ -27,7 +27,7 @@ export const WelcomeContent = ({ title }) => {
 	);
 };
 
-WelcomeContent.propTypes = {
+WelcomePage.propTypes = {
 	title: PropTypes.string,
 	onStartQuiz: PropTypes.func,
 };
