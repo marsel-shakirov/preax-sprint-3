@@ -3,7 +3,11 @@ export const counterReducer = (state, action) => {
 		case 'increment':
 			return { count: state.count + 1 };
 		case 'decrement':
-			return state.count <= 1 ? { ...state } : { count: state.count - 1 };
+			return { count: state.count - 1 };
+		case 'change':
+			return action.value < '1'
+				? { ...state }
+				: { count: Number(action.value) };
 		default:
 			throw Error('Unknown action ' + action.type);
 	}

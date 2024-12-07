@@ -1,3 +1,4 @@
+import { Button } from '@/features/button';
 import { useCounterContext } from '@/shared/hooks';
 import styles from './Counter.module.css';
 
@@ -7,17 +8,21 @@ export const Counter = () => {
 
 	return (
 		<div className={styles.counter}>
-			<button
-				onClick={() => dispatch({ type: 'decrement' })}
-				type="button"
-				className={`${styles.btn} ${styles.minus}`}
-			></button>
-			<div className={styles.count}>{count}</div>
-			<button
-				onClick={() => dispatch({ type: 'increment' })}
-				type="button"
-				className={`${styles.btn} ${styles.plus}`}
-			></button>
+			<Button
+				styled={{ counter: 'decrement' }}
+				onTriggerClick={() => dispatch({ type: 'decrement' })}
+				isDisabled={count === 1}
+			/>
+			<input
+				type="number"
+				value={count}
+				onChange={e => dispatch({ type: 'change', value: e.target.value })}
+				className={styles.count}
+			/>
+			<Button
+				styled={{ counter: 'increment' }}
+				onTriggerClick={() => dispatch({ type: 'increment' })}
+			/>
 		</div>
 	);
 };

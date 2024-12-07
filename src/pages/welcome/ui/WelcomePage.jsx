@@ -1,10 +1,14 @@
-import { Button } from '@/entities/button';
-import { Counter } from '@/entities/counter';
+import { usePageContext } from '@/shared/hooks/usePageContext';
 import PropTypes from 'prop-types';
+
+import { Counter } from '@/entities/counter';
+import { Button } from '@/features/button';
+import { ButtonWrapper } from '@/shared/ui';
 
 import styles from './WelcomePage.module.css';
 
 export const WelcomePage = ({ title }) => {
+	const { isStart, setStart } = usePageContext();
 	console.log('render 3');
 	return (
 		<>
@@ -21,7 +25,9 @@ export const WelcomePage = ({ title }) => {
 					<p>Выбери количество вопросов:</p>
 					<Counter />
 				</div>
-				<Button text="Начать" />
+				<ButtonWrapper>
+					<Button onTriggerClick={() => setStart(!isStart)} text="Начать" />
+				</ButtonWrapper>
 			</section>
 		</>
 	);

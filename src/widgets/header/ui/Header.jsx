@@ -1,5 +1,6 @@
 import { Logo } from '@/entities/logo';
 
+import { Button } from '@/features/button';
 import { usePageContext } from '@/shared/hooks/usePageContext';
 import styles from './Header.module.css';
 
@@ -11,11 +12,10 @@ export const Header = () => {
 			{isStart && (
 				<menu className={styles.close}>
 					<li className={styles.item}>
-						<button
-							onClick={() => setStart(false)}
-							className={styles.button}
-							type="button"
-						></button>
+						<Button
+							styled={{ close: true }}
+							onTriggerClick={() => setStart(false)}
+						/>
 					</li>
 				</menu>
 			)}

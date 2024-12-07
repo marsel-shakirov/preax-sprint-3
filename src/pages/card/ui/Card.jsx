@@ -1,11 +1,15 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import styles from './Card.module.css';
-
-import { Button } from '@/entities/button';
 import CameroonImage from '@/shared/assets/svg/flags/cameroon.svg';
+
 import { useCounterContext } from '@/shared/hooks';
+import { usePageContext } from '@/shared/hooks/usePageContext';
+
+import { Button } from '@/features/button';
+import { ButtonWrapper } from '@/shared/ui';
+
+import styles from './Card.module.css';
 
 const dataCard = [
 	'Камерун',
@@ -14,9 +18,10 @@ const dataCard = [
 	'Гаити',
 ];
 
-export const Card = ({ title, onStartQuiz }) => {
+export const Card = ({ title }) => {
 	const [isDisabled, setDisabled] = React.useState(true);
 	const { count } = useCounterContext();
+	const { isStart, setStart } = usePageContext();
 
 	const handleCheckedCard = () => {
 		setDisabled(false);
@@ -54,11 +59,13 @@ export const Card = ({ title, onStartQuiz }) => {
 					</fieldset>
 				</div>
 				<div className={styles.inner}>
-					<Button
-						isDisabled={isDisabled}
-						text={'Ответить'}
-						onStartQuiz={onStartQuiz}
-					/>
+					<ButtonWrapper isDisabled={isDisabled}>
+						<Button
+							isDisabled={isDisabled}
+							onTriggerClick={() => setStart(!isStart)}
+							text="Ответить"
+						/>
+					</ButtonWrapper>
 					<span className={styles.count}>1 / {count}</span>
 				</div>
 			</section>
@@ -68,5 +75,4 @@ export const Card = ({ title, onStartQuiz }) => {
 
 Card.propTypes = {
 	title: PropTypes.string,
-	onStartQuiz: PropTypes.func,
 };
