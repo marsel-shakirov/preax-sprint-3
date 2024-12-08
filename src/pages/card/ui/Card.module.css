@@ -1,11 +1,19 @@
+.cardWrapper {
+	display: flex;
+	flex-direction: column;
+	row-gap: 16px;
+}
 .quiz {
 	display: flex;
 	flex-direction: column;
 	row-gap: 16px;
-	margin-top: 1.6rem;
 }
 
-.label {
+.quizTitle {
+	line-height: 1.14;
+}
+
+.quizLabel {
 	position: relative;
 	height: 56px;
 	font-size: 2rem;
@@ -14,11 +22,11 @@
 	user-select: none;
 }
 
-.label:hover {
+.quizLabel:hover {
 	border-color: rgba(18, 83, 101, 0.7);
 }
 
-.label:first-of-type {
+.quizLabel:first-of-type {
 	margin-top: 3.2rem;
 }
 
@@ -28,11 +36,11 @@
 	height: 0px;
 }
 
-.label:active {
+.quizLabel:active {
 	border-color: var(--main-color);
 }
 
-.text {
+.quizText {
 	display: block;
 	position: absolute;
 	top: 0;
@@ -58,12 +66,12 @@ input[type='radio']:checked + span {
 	font-weight: 700;
 }
 
-.inner {
+.cardInner {
 	display: flex;
 	justify-content: space-between;
 }
 
-.count {
+.cardCount {
 	font-size: 2rem;
 	font-weight: 700;
 	padding-top: calc(52px / 2);

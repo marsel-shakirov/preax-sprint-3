@@ -1,17 +1,22 @@
 import { usePageContext } from '@/shared/hooks';
 import PropTypes from 'prop-types';
 
-export const Content = ({ Card, WelcomePage }) => {
-	const { isStart } = usePageContext();
+export const Content = ({ WelcomePage, Card, ResultPage }) => {
+	const { currentPage } = usePageContext();
 
 	return (
 		<main>
-			{isStart ? <Card title="Card" /> : <WelcomePage title="Home" />}
+			{currentPage === 'welcome' && <WelcomePage title="Welcome" />}
+			{currentPage === 'card' && <Card title="Card" />}
+			{currentPage === 'result' && (
+				<ResultPage title="Result" result="result-fail" />
+			)}
 		</main>
 	);
 };
 
 Content.propTypes = {
-	Card: PropTypes.node,
 	WelcomePage: PropTypes.node,
+	Card: PropTypes.node,
+	ResultPage: PropTypes.node,
 };

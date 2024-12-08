@@ -3,6 +3,7 @@ import { Container } from '@/shared/ui/';
 import { CounterProvider } from './provider/CounterProvider';
 
 import { Card } from '@/pages/card';
+import { ResultPage } from '@/pages/result';
 import { WelcomePage } from '@/pages/welcome';
 import { Content } from '@/shared/ui';
 import { Footer } from '@/widgets/footer';
@@ -19,7 +20,11 @@ function App() {
 			<CounterProvider>
 				<Container>
 					<Header />
-					<Content Card={Card} WelcomePage={WelcomePage} />
+					<Content
+						WelcomePage={WelcomePage}
+						Card={Card}
+						ResultPage={ResultPage}
+					/>
 					<Footer />
 				</Container>
 			</CounterProvider>

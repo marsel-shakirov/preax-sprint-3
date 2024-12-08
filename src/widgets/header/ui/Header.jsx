@@ -5,16 +5,16 @@ import { usePageContext } from '@/shared/hooks/usePageContext';
 import styles from './Header.module.css';
 
 export const Header = () => {
-	const { isStart, setStart } = usePageContext();
+	const { currentPage, setCurrentPage } = usePageContext();
 	return (
 		<header className={styles.header}>
 			<Logo />
-			{isStart && (
+			{currentPage === 'card' && (
 				<menu className={styles.close}>
 					<li className={styles.item}>
 						<Button
 							styled={{ close: true }}
-							onTriggerClick={() => setStart(false)}
+							onTriggerClick={() => setCurrentPage('welcome')}
 						/>
 					</li>
 				</menu>

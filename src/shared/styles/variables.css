@@ -3,10 +3,24 @@
 	--main-font-size: 62.5%;
 
 	--container-padding-x: 3.2rem;
+	--container-padding-y: 5rem;
 
 	--main-color: #125365;
 	--content-white-color: #f1f1ef;
 
 	--main-border-radius: 10px;
 	--border-circle-radius: 50%;
+
+	--deg: 45deg;
+	--c1: #125365 43%;
+	--c2: #ff723f 43% 53.5%;
+	--c3: #ff9c46 53.5% 81%;
+	--c4: #ffca4a 81%;
+	--grad: linear-gradient(
+		var(--deg),
+		var(--c1),
+		var(--c2),
+		var(--c3),
+		var(--c4)
+	);
 }

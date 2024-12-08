@@ -1,10 +1,11 @@
 .container {
 	display: flex;
-	align-items: center;
 	justify-content: center;
-	min-height: 820px;
+	align-items: center;
 	min-width: 1280px;
+	min-height: 100vh;
 	padding-inline: var(--container-padding-x);
+	padding-block: var(--container-padding-y);
 }
 
 .wrapper {

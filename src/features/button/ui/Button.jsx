@@ -7,6 +7,8 @@ export const Button = ({
 	text,
 	isDisabled,
 	onTriggerClick,
+	type = 'button',
+	form,
 }) => {
 	let classes = styles[styled];
 
@@ -24,8 +26,9 @@ export const Button = ({
 		<button
 			onClick={onTriggerClick}
 			className={`${styles.btn} ${classes}`}
-			type="button"
+			type={type}
 			disabled={isDisabled}
+			form={form}
 		>
 			{text}
 		</button>
@@ -37,4 +40,6 @@ Button.propTypes = {
 	text: PropTypes.string,
 	isDisabled: PropTypes.bool,
 	onTriggerClick: PropTypes.func,
+	type: PropTypes.string,
+	form: PropTypes.string,
 };

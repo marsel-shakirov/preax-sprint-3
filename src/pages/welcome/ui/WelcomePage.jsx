@@ -1,19 +1,18 @@
 import { usePageContext } from '@/shared/hooks/usePageContext';
 import PropTypes from 'prop-types';
 
-import { Counter } from '@/entities/counter';
 import { Button } from '@/features/button';
 import { ButtonWrapper } from '@/shared/ui';
+import { Counter } from '@/widgets/counter';
 
 import styles from './WelcomePage.module.css';
 
 export const WelcomePage = ({ title }) => {
-	const { isStart, setStart } = usePageContext();
+	const { setCurrentPage } = usePageContext();
 	console.log('render 3');
 	return (
 		<>
 			<title>{`Quiz | ${title}`}</title>
-
 			<section className="content welcome">
 				<h1 className={styles.welcomeTitle}>
 					Добро пожаловать
@@ -26,7 +25,7 @@ export const WelcomePage = ({ title }) => {
 					<Counter />
 				</div>
 				<ButtonWrapper>
-					<Button onTriggerClick={() => setStart(!isStart)} text="Начать" />
+					<Button onTriggerClick={() => setCurrentPage('card')} text="Начать" />
 				</ButtonWrapper>
 			</section>
 		</>

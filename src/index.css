@@ -20,13 +20,7 @@ body {
 	font-size: 2.8rem;
 	line-height: 1.2;
 	color: var(--main-color);
-	background-image: linear-gradient(
-		49deg,
-		#125365 37%,
-		#ff723f 37% 53%,
-		#ff9c46 53% 86%,
-		#ffca4a 86%
-	);
+	background-image: var(--grad);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
