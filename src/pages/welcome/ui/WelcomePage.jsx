@@ -9,11 +9,10 @@ import styles from './WelcomePage.module.css';
 
 export const WelcomePage = ({ title }) => {
 	const { setCurrentPage } = usePageContext();
-	console.log('render 3');
 	return (
 		<>
 			<title>{`Quiz | ${title}`}</title>
-			<section className="content welcome">
+			<section className={`content ${styles.welcome}`}>
 				<h1 className={styles.welcomeTitle}>
 					Добро пожаловать
 					<span className={styles.welcomeDesc}>

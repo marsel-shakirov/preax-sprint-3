@@ -1,3 +1,20 @@
+.welcome {
+	align-items: center;
+}
+
+.welcome::after {
+	content: '';
+	position: absolute;
+	top: -79px;
+	right: 0;
+	width: 135px;
+	height: 146px;
+	background-image: url(@/shared/assets/images/illustration/welcome.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
 .welcomeTitle {
 	max-width: 350px;
 	font-size: 3.6rem;

@@ -3,9 +3,8 @@
 	justify-content: center;
 	align-items: center;
 	min-width: 1280px;
-	min-height: 100vh;
 	padding-inline: var(--container-padding-x);
-	padding-block: var(--container-padding-y);
+	height: max(812px, 100vh);
 }
 
 .wrapper {

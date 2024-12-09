@@ -4,7 +4,6 @@ import styles from './Counter.module.css';
 
 export const Counter = () => {
 	const { count, dispatch } = useCounterContext();
-	console.log('render 4');
 
 	return (
 		<div className={styles.counter}>

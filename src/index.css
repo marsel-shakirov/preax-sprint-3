@@ -25,3 +25,13 @@ body {
 	background-position: center;
 	background-attachment: fixed;
 }
+
+.content {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	row-gap: 32px;
+	padding: 3.2rem;
+	background-color: var(--content-white-color);
+	border-radius: var(--main-border-radius);
+}
