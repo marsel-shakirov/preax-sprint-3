@@ -2,6 +2,6 @@ export { Container } from './container/Container';
 
 export { Content } from './content/Content';
 
-export { ButtonWrapper } from './button-wrapper/ButtonWrapper';
+export { Label } from './label/Label';
 
-export { CardImage } from './cardImage/CardImage';
+export { Logo } from './logo/Logo';

@@ -1,8 +1,8 @@
-import { usePageContext } from '@/shared/hooks/usePageContext';
+import { usePageContext } from '@/shared/context-hooks/usePageContext';
 import PropTypes from 'prop-types';
 
 import { Button } from '@/features/button';
-import { ButtonWrapper } from '@/shared/ui';
+import { ButtonWrapper } from '@/widgets/button-wrapper';
 
 import styles from './ResultPage.module.css';
 

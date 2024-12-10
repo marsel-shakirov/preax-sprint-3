@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
 
-import { useCounterContext } from '@/shared/hooks';
-import { usePageContext } from '@/shared/hooks/usePageContext';
+import { useCounterContext } from '@/shared/context-hooks';
+import { usePageContext } from '@/shared/context-hooks/usePageContext';
 
 import { Button } from '@/features/button';
-import { ButtonWrapper, CardImage } from '@/shared/ui';
+import { Label } from '@/shared/ui';
+import { ButtonWrapper } from '@/widgets/button-wrapper';
 
 import { dataQuizCard } from '../api/dataQuizCard';
 
@@ -27,17 +28,14 @@ export const Card = ({ title }) => {
 				<form id="quiz" className={styles.cardWrapper}>
 					{dataQuizCard.map(({ id, srcImage, altImage, countries }) => (
 						<Fragment key={id}>
-							<CardImage src={srcImage} alt={altImage} />
+							<img src={srcImage} alt={altImage} width="90" height="60" />
 							<fieldset className={styles.quiz}>
 								<legend className={styles.quizTitle}>
 									Флаг какой страны изображен?
 								</legend>
 
 								{countries.map((country, index) => (
-									<label
-										key={`${country}_${index}`}
-										className={styles.quizLabel}
-									>
+									<Label key={`${country}_${index}`}>
 										<input
 											onClick={handleCheckedCard}
 											className={styles.input}
@@ -46,7 +44,7 @@ export const Card = ({ title }) => {
 											value={++index}
 										/>
 										<span className={styles.quizText}>{country}</span>
-									</label>
+									</Label>
 								))}
 							</fieldset>
 						</Fragment>

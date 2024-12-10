@@ -13,31 +13,10 @@
 	line-height: 1.14;
 }
 
-.quizLabel {
-	position: relative;
-	height: 56px;
-	font-size: 2rem;
-	border: 4px solid var(--main-color);
-	border-radius: var(--main-border-radius);
-	user-select: none;
-}
-
-.quizLabel:hover {
-	border-color: rgba(18, 83, 101, 0.7);
-}
-
-.quizLabel:first-of-type {
-	margin-top: 3.2rem;
-}
-
 .input {
 	width: 18px;
 	margin-right: 8px;
 	height: 0px;
-}
-
-.quizLabel:active {
-	border-color: var(--main-color);
 }
 
 .quizText {

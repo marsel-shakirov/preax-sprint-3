@@ -1,5 +1,5 @@
 import { Button } from '@/features/button';
-import { useCounterContext } from '@/shared/hooks';
+import { useCounterContext } from '@/shared/context-hooks';
 import styles from './Counter.module.css';
 
 export const Counter = () => {
@@ -14,6 +14,7 @@ export const Counter = () => {
 			/>
 			<input
 				type="number"
+				id="count"
 				value={count}
 				onChange={e => dispatch({ type: 'change', value: e.target.value })}
 				className={styles.count}

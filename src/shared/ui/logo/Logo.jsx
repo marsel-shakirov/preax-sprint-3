@@ -9,8 +9,8 @@ export const Logo = () => {
 				className={styles.logo}
 				src={LogoSVG}
 				alt="Логотип приложения Quiz - викторина по странам и столицам"
-				width={178}
-				height={48}
+				width="178"
+				height="48"
 			/>
 		</a>
 	);

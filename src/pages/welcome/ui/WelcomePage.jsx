@@ -1,8 +1,9 @@
-import { usePageContext } from '@/shared/hooks/usePageContext';
+import { usePageContext } from '@/shared/context-hooks/usePageContext';
 import PropTypes from 'prop-types';
 
 import { Button } from '@/features/button';
-import { ButtonWrapper } from '@/shared/ui';
+import { Label } from '@/shared/ui';
+import { ButtonWrapper } from '@/widgets/button-wrapper';
 import { Counter } from '@/widgets/counter';
 
 import styles from './WelcomePage.module.css';
@@ -20,7 +21,7 @@ export const WelcomePage = ({ title }) => {
 					</span>
 				</h1>
 				<div className={styles.welcomeQuestion}>
-					<p>Выбери количество вопросов:</p>
+					<Label labelFor="count">Выбери количество вопросов:</Label>
 					<Counter />
 				</div>
 				<ButtonWrapper>

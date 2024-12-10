@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { CounterContext } from '@/shared/context';
-import { counterReducer } from '@/shared/helpers';
+import { counterReducer } from '@/widgets/counter';
 import { useReducer } from 'react';
 
 export const CounterProvider = ({ children }) => {
