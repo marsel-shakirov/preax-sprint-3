@@ -1,23 +1,23 @@
-.row {
+.buttonWrapper {
 	display: flex;
 	flex-direction: column;
 	row-gap: 8px;
 }
 
-.desc {
+.buttonDesc {
 	font-size: 1rem;
 	font-weight: 400;
 	text-align: center;
 }
 
-.desc.disabled {
+.buttonDesc.disabled {
 	opacity: 0.4;
 }
 
-.enter {
+.buttonEnter {
 	font-weight: 700;
 }
 
-.enter::after {
+.buttonEnter::after {
 	content: ' ↵';
 }

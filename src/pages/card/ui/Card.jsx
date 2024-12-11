@@ -10,6 +10,7 @@ import { ButtonWrapper } from '@/widgets/button-wrapper';
 
 import { dataQuizCard } from '../api/dataQuizCard';
 
+import { Input } from '@/features/input';
 import styles from './Card.module.css';
 
 export const Card = ({ title }) => {
@@ -23,7 +24,7 @@ export const Card = ({ title }) => {
 
 	return (
 		<>
-			<title>{`Quiz | ${title}`}</title>
+			<title>{`QuizApp | ${title}`}</title>
 			<section className="content">
 				<form id="quiz" className={styles.cardWrapper}>
 					{dataQuizCard.map(({ id, srcImage, altImage, countries }) => (
@@ -36,9 +37,9 @@ export const Card = ({ title }) => {
 
 								{countries.map((country, index) => (
 									<Label key={`${country}_${index}`}>
-										<input
-											onClick={handleCheckedCard}
-											className={styles.input}
+										<Input
+											styled={{ classes: ['cardInput'] }}
+											onChangeInput={handleCheckedCard}
 											type="radio"
 											name="answer"
 											value={++index}
@@ -60,7 +61,7 @@ export const Card = ({ title }) => {
 							form="quiz"
 						/>
 					</ButtonWrapper>
-					<span className={styles.cardCount}>1 / {count}</span>
+					<span className={styles.cardCount}>1&nbsp;/&nbsp;{count}</span>
 				</div>
 			</section>
 		</>

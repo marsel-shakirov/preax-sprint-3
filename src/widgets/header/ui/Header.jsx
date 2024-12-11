@@ -10,10 +10,10 @@ export const Header = () => {
 		<header className={styles.header}>
 			<Logo />
 			{currentPage === 'card' && (
-				<menu className={styles.close}>
+				<menu className={styles.menu}>
 					<li className={styles.item}>
 						<Button
-							styled={{ close: true }}
+							styled={{ classes: ['close'] }}
 							onTriggerClick={() => setCurrentPage('welcome')}
 						/>
 					</li>

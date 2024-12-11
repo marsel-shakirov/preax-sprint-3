@@ -2,7 +2,7 @@
 	align-items: center;
 }
 
-.image-block {
+.resultImage {
 	width: 196px;
 	height: 196px;
 	background-image: url(@/shared/assets/images/illustration/result.png);
@@ -10,25 +10,28 @@
 	background-repeat: no-repeat;
 }
 
-.wrapper {
+.resultDesc {
+	line-height: 1.17;
+}
+
+.resultWrapper {
 	display: flex;
 	flex-direction: column;
 	row-gap: 16px;
 	text-align: center;
-	letter-spacing: 1px;
 }
 
-.correct {
-	font-weight: 900;
+.resultCorrect {
+	font-weight: 700;
 	color: #2a8f55;
 }
 
-.mistake {
-	font-weight: 900;
+.resultMistake {
+	font-weight: 700;
 	color: #df4c25;
 }
 
-.title {
+.resultTitle {
 	margin-block: 0;
 	font-size: 3.6rem;
 	font-weight: 700;

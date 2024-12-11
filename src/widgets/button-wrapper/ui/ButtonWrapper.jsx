@@ -4,10 +4,12 @@ import styles from './ButtonWrapper.module.css';
 
 export const ButtonWrapper = ({ isDisabled = false, children }) => {
 	return (
-		<div className={styles.row}>
+		<div className={styles.buttonWrapper}>
 			{children}
-			<span className={`${isDisabled ? styles.disabled : ''} ${styles.desc}`}>
-				или нажми <span className={styles.enter}>Enter</span>
+			<span
+				className={`${isDisabled ? styles.disabled : ''} ${styles.buttonDesc}`}
+			>
+				или нажми <span className={styles.buttonEnter}>Enter</span>
 			</span>
 		</div>
 	);

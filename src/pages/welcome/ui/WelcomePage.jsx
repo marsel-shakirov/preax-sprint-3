@@ -12,7 +12,7 @@ export const WelcomePage = ({ title }) => {
 	const { setCurrentPage } = usePageContext();
 	return (
 		<>
-			<title>{`Quiz | ${title}`}</title>
+			<title>{`QuizApp | ${title}`}</title>
 			<section className={`content ${styles.welcome}`}>
 				<h1 className={styles.welcomeTitle}>
 					Добро пожаловать
