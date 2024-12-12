@@ -9,7 +9,7 @@
 	right: 0;
 	width: 135px;
 	height: 146px;
-	background-image: url(@/shared/assets/images/illustration/welcome.png);
+	background-image: url(/assets/images/illustration/welcome.png);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;

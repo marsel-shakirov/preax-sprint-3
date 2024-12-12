@@ -13,6 +13,7 @@ export const WelcomePage = ({ title }) => {
 	return (
 		<>
 			<title>{`QuizApp | ${title}`}</title>
+
 			<section className={`content ${styles.welcome}`}>
 				<h1 className={styles.welcomeTitle}>
 					Добро пожаловать

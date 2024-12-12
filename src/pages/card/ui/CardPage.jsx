@@ -5,15 +5,15 @@ import { useCounterContext } from '@/shared/context-hooks';
 import { usePageContext } from '@/shared/context-hooks/usePageContext';
 
 import { Button } from '@/features/button';
+import { Input } from '@/features/input';
 import { Label } from '@/shared/ui';
 import { ButtonWrapper } from '@/widgets/button-wrapper';
 
 import { dataQuizCard } from '../api/dataQuizCard';
 
-import { Input } from '@/features/input';
-import styles from './Card.module.css';
+import styles from './CardPage.module.css';
 
-export const Card = ({ title }) => {
+export const CardPage = ({ title }) => {
 	const [isDisabled, setDisabled] = React.useState(true);
 	const { count } = useCounterContext();
 	const { setCurrentPage } = usePageContext();
@@ -25,6 +25,7 @@ export const Card = ({ title }) => {
 	return (
 		<>
 			<title>{`QuizApp | ${title}`}</title>
+
 			<section className="content">
 				<form id="quiz" className={styles.cardWrapper}>
 					{dataQuizCard.map(({ id, srcImage, altImage, countries }) => (
@@ -67,6 +68,6 @@ export const Card = ({ title }) => {
 	);
 };
 
-Card.propTypes = {
+CardPage.propTypes = {
 	title: PropTypes.string,
 };

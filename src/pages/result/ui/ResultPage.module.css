@@ -5,7 +5,7 @@
 .resultImage {
 	width: 196px;
 	height: 196px;
-	background-image: url(@/shared/assets/images/illustration/result.png);
+	background-image: url(/assets/images/illustration/result.png);
 	background-position: 50% 90%;
 	background-repeat: no-repeat;
 }

@@ -1,4 +1,4 @@
-import LogoSVG from '@/shared/assets/svg/logo/logo.svg';
+import LogoSVG from '/assets/svg/logo/logo.svg';
 
 import styles from './Logo.module.css';
 

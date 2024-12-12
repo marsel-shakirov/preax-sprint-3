@@ -1,3 +1,3 @@
-export { Card } from './ui/Card';
+export { CardPage } from './ui/CardPage';
 
 export { dataQuizCard } from './api/dataQuizCard';
