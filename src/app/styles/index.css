@@ -30,7 +30,7 @@ body {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	row-gap: 32px;
+	row-gap: var(--row-gap);
 	padding: 3.2rem;
 	background-color: var(--content-white-color);
 	border-radius: var(--main-border-radius);

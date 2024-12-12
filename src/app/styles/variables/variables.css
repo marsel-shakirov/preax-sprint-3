@@ -4,11 +4,17 @@
 
 	--container-padding-x: 3.2rem;
 
+	--row-gap: 32px;
+	--row-gap-card: 16px;
+
 	--main-color: #125365;
 	--content-white-color: #f1f1ef;
+	--button-main-disabled: #edd0b6;
+	--button-main: #ff9c46;
 
 	--main-border-radius: 10px;
 	--border-circle-radius: 50%;
+	--counter-border-radius: 5px;
 
 	--deg: 45deg;
 	--c1: #125365 43%;

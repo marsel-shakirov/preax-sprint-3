@@ -12,7 +12,7 @@
 	font-weight: 700;
 	color: var(--content-white-color);
 	border-radius: var(--main-border-radius);
-	background-color: #ff9c46;
+	background-color: var(--button-main);
 	cursor: pointer;
 	user-select: none;
 	transition: border 0.3s, color 0.3s;
@@ -20,7 +20,7 @@
 
 .main:disabled {
 	cursor: default;
-	background-color: #edd0b6;
+	background-color: var(--button-main-disabled);
 }
 
 .counter {
@@ -47,7 +47,7 @@
 	transform: translate(63%, -44%);
 	width: 18px;
 	height: 4px;
-	border-radius: 5px;
+	border-radius: var(--counter-border-radius);
 	background-color: var(--main-color);
 }
 
@@ -58,15 +58,15 @@
 	transform: translate(18px, -49%);
 	width: 4px;
 	height: 18px;
-	border-radius: 5px;
+	border-radius: var(--counter-border-radius);
 	background-color: var(--main-color);
 }
 
 .close {
 	width: 33px;
 	height: 33px;
+	padding: initial;
 	color: rgba(0, 0, 0, 0.3);
-	padding: 0;
 	background-color: radial-gradient(
 		transparent 50%,
 		var(--content-white-color) 100%

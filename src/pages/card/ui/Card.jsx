@@ -34,7 +34,6 @@ export const Card = ({ title }) => {
 								<legend className={styles.quizTitle}>
 									Флаг какой страны изображен?
 								</legend>
-
 								{countries.map((country, index) => (
 									<Label key={`${country}_${index}`}>
 										<Input

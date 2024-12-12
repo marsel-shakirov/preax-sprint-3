@@ -1,12 +1,13 @@
 .cardWrapper {
 	display: flex;
 	flex-direction: column;
-	row-gap: 16px;
+	row-gap: var(--row-gap-card);
 }
 .quiz {
 	display: flex;
 	flex-direction: column;
-	row-gap: 16px;
+	row-gap: var(--row-gap-card);
+	counter-reset: count 0;
 }
 
 .quizTitle {
@@ -24,6 +25,7 @@
 	padding-block: 1.2rem;
 	padding-inline: 4.2rem;
 	border-radius: 6px;
+	counter-increment: count 1;
 }
 
 .cardInner {
@@ -36,4 +38,14 @@
 	font-weight: 700;
 	letter-spacing: 0.7px;
 	padding-top: calc(52px / 2);
+}
+
+.quizText::before {
+	content: counter(count);
+	position: absolute;
+	top: 12px;
+	left: 15px;
+	z-index: 10;
+	color: var(--main-color);
+	font-weight: 700;
 }
