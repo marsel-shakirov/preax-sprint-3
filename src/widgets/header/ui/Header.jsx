@@ -15,6 +15,7 @@ export const Header = () => {
 						<Button
 							styled={{ classes: ['close'] }}
 							onTriggerClick={() => setCurrentPage('welcome')}
+							ariaLabel="Вернуться на начальную страницу"
 						/>
 					</li>
 				</menu>

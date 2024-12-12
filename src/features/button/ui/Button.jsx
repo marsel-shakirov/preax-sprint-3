@@ -10,6 +10,7 @@ export const Button = ({
 	onTriggerClick,
 	type = 'button',
 	form,
+	ariaLabel,
 }) => {
 	return (
 		<button
@@ -18,6 +19,7 @@ export const Button = ({
 			type={type}
 			disabled={isDisabled}
 			form={form}
+			aria-label={ariaLabel}
 		>
 			{text}
 		</button>
@@ -32,4 +34,5 @@ Button.propTypes = {
 	type: PropTypes.string,
 	form: PropTypes.string,
 	dataAttribute: PropTypes.string,
+	ariaLabel: PropTypes.string,
 };
