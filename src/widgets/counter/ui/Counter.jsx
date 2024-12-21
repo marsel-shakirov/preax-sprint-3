@@ -12,7 +12,7 @@ export const Counter = () => {
 				styled={{ classes: ['counter', 'decrement'] }}
 				onTriggerClick={() => dispatch({ type: 'decrement' })}
 				isDisabled={count === 1}
-				ariaLabel="Убавить вопросы"
+				ariaLabel="Уменьшить вопросы"
 			/>
 			<Input
 				type="number"
@@ -24,7 +24,7 @@ export const Counter = () => {
 			<Button
 				styled={{ classes: ['counter', 'increment'] }}
 				onTriggerClick={() => dispatch({ type: 'increment' })}
-				ariaLabel="Прибавить вопросы"
+				ariaLabel="Добавить вопросы"
 			/>
 		</div>
 	);

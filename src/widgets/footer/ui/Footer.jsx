@@ -10,8 +10,9 @@ export const Footer = () => {
 					target="_blank"
 					rel="noopener noreferrer"
 					className={styles.link}
+					lang="en"
 				>
-					PREAX
+					preax
 				</a>
 			</p>
 		</footer>

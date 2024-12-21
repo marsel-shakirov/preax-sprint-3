@@ -44,8 +44,8 @@
 	display: block;
 	content: '';
 	position: absolute;
-	transform: translate(63%, -44%);
-	width: 18px;
+	transform: translate(62%, -44%);
+	width: 19px;
 	height: 4px;
 	border-radius: var(--counter-border-radius);
 	background-color: var(--main-color);
@@ -55,9 +55,9 @@
 	display: block;
 	content: '';
 	position: absolute;
-	transform: translate(18px, -49%);
+	transform: translate(19px, -49%);
 	width: 4px;
-	height: 18px;
+	height: 19px;
 	border-radius: var(--counter-border-radius);
 	background-color: var(--main-color);
 }
