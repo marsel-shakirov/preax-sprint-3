@@ -1,18 +1,13 @@
 .cardWrapper {
 	display: flex;
 	flex-direction: column;
-	row-gap: var(--row-gap-card);
+	row-gap: var(--row-gap);
 }
 .quiz {
 	display: flex;
 	flex-direction: column;
 	row-gap: var(--row-gap-card);
 	counter-reset: count 0;
-}
-
-.quizTitle {
-	padding-inline: 0;
-	line-height: 1.14;
 }
 
 .quizText {

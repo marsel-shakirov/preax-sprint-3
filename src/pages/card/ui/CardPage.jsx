@@ -1,22 +1,35 @@
 import PropTypes from 'prop-types';
-import React, { Fragment } from 'react';
+import React from 'react';
 
-import { useCounterContext } from '@/shared/context-hooks';
-import { usePageContext } from '@/shared/context-hooks/usePageContext';
+import { useCounterContext, usePageContext } from '@/shared/context-hooks';
 
 import { Button } from '@/features/button';
-import { Input } from '@/features/input';
-import { Label } from '@/shared/ui';
+import { Input as RadioButton } from '@/features/input';
+import { Label, Question } from '@/shared/ui';
+import { Answer } from '@/widgets/answer';
 import { ButtonWrapper } from '@/widgets/button-wrapper';
 
-import { dataQuizCard } from '../api/dataQuizCard';
+import { quizQuestions } from '../api/quizQuestions';
+import { getRandomArrayElements } from '../model/getRandomArrayElements';
 
 import styles from './CardPage.module.css';
 
 export const CardPage = ({ title }) => {
-	const [isDisabled, setDisabled] = React.useState(true);
 	const { count } = useCounterContext();
 	const { setCurrentPage } = usePageContext();
+
+	const [isDisabled, setDisabled] = React.useState(true);
+	const [activeIndex, setActiveIndex] = React.useState(1);
+
+	const { questions, countries } = quizQuestions;
+	const [renderQuizQuestions] = React.useState(
+		getRandomArrayElements(questions, count).map(obj => {
+			return {
+				...obj,
+				countries: getRandomArrayElements(countries, 4, obj.correctAnswer),
+			};
+		})
+	);
 
 	const handleCheckedCard = () => {
 		setDisabled(false);
@@ -28,40 +41,49 @@ export const CardPage = ({ title }) => {
 
 			<section className="content">
 				<form id="quiz" className={styles.cardWrapper}>
-					{dataQuizCard.map(({ id, srcImage, altImage, countries }) => (
-						<Fragment key={id}>
-							<img src={srcImage} alt={altImage} width="90" height="60" />
-							<fieldset className={styles.quiz}>
-								<legend className={styles.quizTitle}>
-									Флаг какой страны изображен?
-								</legend>
-								{countries.map((country, index) => (
-									<Label key={`${country}_${index}`}>
-										<Input
-											styled={{ classes: ['cardInput'] }}
-											onChangeInput={handleCheckedCard}
-											type="radio"
-											name="answer"
-											value={++index}
-										/>
-										<span className={styles.quizText}>{country}</span>
-									</Label>
-								))}
-							</fieldset>
-						</Fragment>
-					))}
+					{renderQuizQuestions.map(
+						({ question, correctAnswer, flag, countries }, index) => (
+							<Answer
+								isShowAnswer={activeIndex === index + 1}
+								key={`${correctAnswer}_${index}`}
+							>
+								<Question title={question} imageSrc={flag} />
+
+								<fieldset className={styles.quiz}>
+									{countries.map((country, index) => (
+										<Label key={`${country}_${index}`}>
+											<RadioButton
+												styled={{ classes: ['cardInput'] }}
+												onChangeInput={handleCheckedCard}
+												type="radio"
+												name="answer"
+												value={++index}
+											/>
+											<span className={styles.quizText}>{country}</span>
+										</Label>
+									))}
+								</fieldset>
+							</Answer>
+						)
+					)}
 				</form>
 				<div className={styles.cardInner}>
 					<ButtonWrapper isDisabled={isDisabled}>
 						<Button
 							isDisabled={isDisabled}
-							onTriggerClick={() => setCurrentPage('result')}
+							onTriggerClick={() => {
+								activeIndex >= count && setCurrentPage('result');
+								setActiveIndex(activeIndex + 1);
+								setDisabled(true);
+							}}
 							text="Ответить"
 							type="submit"
 							form="quiz"
 						/>
 					</ButtonWrapper>
-					<span className={styles.cardCount}>1&nbsp;/&nbsp;{count}</span>
+					<span className={styles.cardCount}>
+						{activeIndex}&nbsp;/&nbsp;{count}
+					</span>
 				</div>
 			</section>
 		</>

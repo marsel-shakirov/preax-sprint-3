@@ -5,3 +5,5 @@ export { Content } from './content/Content';
 export { Label } from './label/Label';
 
 export { Logo } from './logo/Logo';
+
+export { Question } from './question/Question';

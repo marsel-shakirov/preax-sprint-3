@@ -1,0 +1,11 @@
+.quizBlock {
+	display: flex;
+	flex-direction: column;
+	row-gap: 16px;
+	margin: 0;
+}
+
+.quizTitle {
+	padding-inline: 0;
+	line-height: 1.142;
+}

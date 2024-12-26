@@ -14,6 +14,7 @@
 	border-radius: var(--main-border-radius);
 	letter-spacing: 2px;
 	text-align: center;
+	transition: color 0.2s;
 }
 
 .count::placeholder {
@@ -42,4 +43,9 @@ input[type='radio']:checked + span {
 
 input[type='number'] {
 	-moz-appearance: textfield;
+}
+
+.count:hover,
+.count:focus {
+	color: var(--second-main-color);
 }

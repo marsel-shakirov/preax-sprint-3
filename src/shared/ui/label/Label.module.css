@@ -2,17 +2,14 @@
 	position: relative;
 	height: 56px;
 	font-size: 2rem;
-	border: 4px solid var(--main-color);
+	color: var(--main-color);
+	border: 4px solid currentColor;
 	border-radius: var(--main-border-radius);
 	user-select: none;
 }
 
 .label:has(input[type='radio'] + span):hover {
 	border-color: rgba(18, 83, 101, 0.7);
-}
-
-.label:has(input[type='radio'] + span):first-of-type {
-	margin-top: 3.2rem;
 }
 
 .label:has(input[type='radio'] + span):active {

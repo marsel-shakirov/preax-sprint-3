@@ -6,10 +6,14 @@ import { Label } from '@/shared/ui';
 import { ButtonWrapper } from '@/widgets/button-wrapper';
 import { Counter } from '@/widgets/counter';
 
+import { useCounterContext } from '@/shared/context-hooks';
+
 import styles from './WelcomePage.module.css';
 
 export const WelcomePage = ({ title }) => {
 	const { setCurrentPage } = usePageContext();
+	const { count } = useCounterContext();
+
 	return (
 		<>
 			<title>{`QuizApp | ${title}`}</title>
@@ -21,12 +25,21 @@ export const WelcomePage = ({ title }) => {
 						на викторину по странам и столицам!
 					</span>
 				</h1>
-				<div className={styles.welcomeQuestion}>
+				<form id="welcome" className={styles.welcomeQuestion}>
 					<Label labelFor="count">Выбери количество вопросов:</Label>
 					<Counter />
-				</div>
-				<ButtonWrapper>
-					<Button onTriggerClick={() => setCurrentPage('card')} text="Начать" />
+				</form>
+				<ButtonWrapper isDisabled={!count}>
+					<Button
+						onTriggerClick={e => {
+							e.preventDefault();
+							setCurrentPage('card');
+						}}
+						isDisabled={!count}
+						text="Начать"
+						type="submit"
+						form="welcome"
+					/>
 				</ButtonWrapper>
 			</section>
 		</>

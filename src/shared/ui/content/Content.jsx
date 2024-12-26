@@ -11,6 +11,8 @@ export const Content = ({ WelcomePage, CardPage, ResultPage }) => {
 			{currentPage === 'result' && (
 				<ResultPage title="Result" result="result-fail" />
 			)}
+			{/* <ResultPage title="Result" result="result-well" />*/}
+			{/* <ResultPage title="Result" result="result" />*/}
 		</main>
 	);
 };

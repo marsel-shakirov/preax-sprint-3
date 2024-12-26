@@ -11,10 +11,12 @@ export const Input = ({
 	value,
 	name,
 	onChangeInput,
+	onBlurInput,
 }) => {
 	return (
 		<input
 			className={`${styles.input} ${getClasses(styles, styled)}`}
+			onBlur={onBlurInput}
 			onChange={onChangeInput}
 			type={type}
 			id={id}
@@ -32,4 +34,5 @@ Input.propTypes = {
 	name: PropTypes.string,
 	onChangeInput: PropTypes.func,
 	onClickInput: PropTypes.func,
+	onBlurInput: PropTypes.func,
 };

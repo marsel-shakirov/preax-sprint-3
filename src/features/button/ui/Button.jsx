@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { getClasses } from '@/shared/model';
+
 import styles from './Button.module.css';
 
 export const Button = ({
