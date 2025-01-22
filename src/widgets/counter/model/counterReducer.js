@@ -1,20 +1,22 @@
+import { MAX_COUNT_VALUE, MIN_COUNT_VALUE } from '@/widgets/counter/index';
+
 export const counterReducer = (state, action) => {
-	console.log(action.value);
+	const count =
+		action.type === 'change' ? Number(action.value) : Number(state.count);
+
 	switch (action.type) {
 		case 'increment':
-			return { count: state.count + 1 };
+			return { count: count + 1 };
 		case 'decrement':
-			return { count: state.count - 1 };
+			return { count: count - 1 };
 		case 'change':
-			return Number(action.value) < 1
+			return count < MIN_COUNT_VALUE
 				? { count: '' }
-				: Number(action.value) > 20
-				? { ...state }
-				: { count: Number(action.value) };
+				: count > MAX_COUNT_VALUE
+				? { count: MAX_COUNT_VALUE }
+				: { count: count };
 		case 'init':
-			return action.value === ''
-				? { count: 1 }
-				: { count: Number(action.value) };
+			return { count: '' };
 		default:
 			throw Error('Unknown action ' + action.type);
 	}

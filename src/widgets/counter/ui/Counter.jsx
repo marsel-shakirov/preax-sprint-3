@@ -1,8 +1,13 @@
+// import { useState } from 'react';
+
 import { Button } from '@/features/button';
 import { Input } from '@/features/input';
+
 import { useCounterContext } from '@/shared/context-hooks';
 
 import styles from './Counter.module.css';
+
+import { MAX_COUNT_VALUE, MIN_COUNT_VALUE } from '@/widgets/counter/index';
 
 export const Counter = () => {
 	const { count, dispatch } = useCounterContext();
@@ -12,21 +17,26 @@ export const Counter = () => {
 			<Button
 				styled={{ classes: ['counter', 'decrement'] }}
 				onTriggerClick={() => dispatch({ type: 'decrement' })}
-				isDisabled={count <= 1}
+				isDisabled={count <= MIN_COUNT_VALUE}
 				ariaLabel="Уменьшить вопросы"
 			/>
 			<Input
-				type="number"
+				type="text"
 				styled={{ classes: ['count'] }}
 				id="count"
 				value={count}
-				onBlurInput={e => dispatch({ type: 'init', value: e.target.value })}
-				onChangeInput={e => dispatch({ type: 'change', value: e.target.value })}
+				onFocus={() => dispatch({ type: 'init' })}
+				onChange={event => {
+					dispatch({
+						type: 'change',
+						value: event.target.value.replace(/\D+/g, ''),
+					});
+				}}
 			/>
 			<Button
 				styled={{ classes: ['counter', 'increment'] }}
 				onTriggerClick={() => dispatch({ type: 'increment' })}
-				isDisabled={count >= 20}
+				isDisabled={count >= MAX_COUNT_VALUE}
 				ariaLabel="Добавить вопросы"
 			/>
 		</div>

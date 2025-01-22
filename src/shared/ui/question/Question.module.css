@@ -5,6 +5,10 @@
 	margin: 0;
 }
 
+.quizPicture {
+	border-radius: 10px;
+}
+
 .quizTitle {
 	padding-inline: 0;
 	line-height: 1.142;

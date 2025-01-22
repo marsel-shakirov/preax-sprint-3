@@ -10,14 +10,14 @@ export const Input = ({
 	id,
 	value,
 	name,
-	onChangeInput,
-	onBlurInput,
+	onChange,
+	onFocus,
 }) => {
 	return (
 		<input
 			className={`${styles.input} ${getClasses(styles, styled)}`}
-			onBlur={onBlurInput}
-			onChange={onChangeInput}
+			onFocus={onFocus}
+			onChange={onChange}
 			type={type}
 			id={id}
 			value={value}
@@ -32,7 +32,6 @@ Input.propTypes = {
 	id: PropTypes.string,
 	value: PropTypes.number,
 	name: PropTypes.string,
-	onChangeInput: PropTypes.func,
-	onClickInput: PropTypes.func,
-	onBlurInput: PropTypes.func,
+	onChange: PropTypes.func,
+	onFocus: PropTypes.func,
 };

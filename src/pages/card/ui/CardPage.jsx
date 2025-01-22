@@ -9,7 +9,7 @@ import { Label, Question } from '@/shared/ui';
 import { Answer } from '@/widgets/answer';
 import { ButtonWrapper } from '@/widgets/button-wrapper';
 
-import { quizQuestions } from '../api/quizQuestions';
+import { quizQuestions } from '@/shared/api/index';
 import { getRandomArrayElements } from '../model/getRandomArrayElements';
 
 import styles from './CardPage.module.css';
@@ -54,7 +54,7 @@ export const CardPage = ({ title }) => {
 										<Label key={`${country}_${index}`}>
 											<RadioButton
 												styled={{ classes: ['cardInput'] }}
-												onChangeInput={handleCheckedCard}
+												onChange={handleCheckedCard}
 												type="radio"
 												name="answer"
 												value={++index}
