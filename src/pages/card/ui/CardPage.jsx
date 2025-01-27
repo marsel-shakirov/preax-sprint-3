@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 
 import { useCounterContext, usePageContext } from '@/shared/context-hooks';
+import { useEnterPressButton } from '@/shared/hooks';
+import { useRef, useState } from 'react';
 
 import { Button } from '@/features/button';
 import { Input as RadioButton } from '@/features/input';
@@ -16,13 +17,13 @@ import styles from './CardPage.module.css';
 
 export const CardPage = ({ title }) => {
 	const { count } = useCounterContext();
-	const { setCurrentPage } = usePageContext();
+	const { navigate } = usePageContext();
 
-	const [isDisabled, setDisabled] = React.useState(true);
-	const [activeIndex, setActiveIndex] = React.useState(1);
+	const [activeIndex, setActiveIndex] = useState(1);
+	const [isDisabled, setDisabled] = useState(true);
 
 	const { questions, countries } = quizQuestions;
-	const [renderQuizQuestions] = React.useState(
+	const [renderQuizQuestions] = useState(
 		getRandomArrayElements(questions, count).map(obj => {
 			return {
 				...obj,
@@ -30,6 +31,12 @@ export const CardPage = ({ title }) => {
 			};
 		})
 	);
+
+	const buttonRef = useRef(null);
+
+	const isHaveSomeQuestions = activeIndex >= count;
+
+	useEnterPressButton(buttonRef, isDisabled);
 
 	const handleCheckedCard = () => {
 		setDisabled(false);
@@ -70,9 +77,10 @@ export const CardPage = ({ title }) => {
 				<div className={styles.cardInner}>
 					<ButtonWrapper isDisabled={isDisabled}>
 						<Button
+							ref={buttonRef}
 							isDisabled={isDisabled}
 							onTriggerClick={() => {
-								activeIndex >= count && setCurrentPage('result');
+								isHaveSomeQuestions && navigate('/result');
 								setActiveIndex(activeIndex + 1);
 								setDisabled(true);
 							}}

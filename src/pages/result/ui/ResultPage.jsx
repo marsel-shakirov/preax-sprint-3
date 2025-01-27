@@ -1,15 +1,22 @@
-import { usePageContext } from '@/shared/context-hooks/usePageContext';
 import PropTypes from 'prop-types';
 
 import { Button } from '@/features/button';
 import { ButtonWrapper } from '@/widgets/button-wrapper';
 
+import { usePageContext } from '@/shared/context-hooks/usePageContext';
+import { useEnterPressButton } from '@/shared/hooks';
+import { useRef } from 'react';
+
 import { RenderResultText } from './RenderResultText';
 
 import styles from './ResultPage.module.css';
 
-export const ResultPage = ({ title, result = 'result' }) => {
-	const { setCurrentPage } = usePageContext();
+export const ResultPage = ({ title, result = '/result' }) => {
+	const { navigate } = usePageContext();
+
+	const buttonRef = useRef(null);
+
+	useEnterPressButton(buttonRef);
 
 	return (
 		<>
@@ -23,7 +30,8 @@ export const ResultPage = ({ title, result = 'result' }) => {
 				</div>
 				<ButtonWrapper>
 					<Button
-						onTriggerClick={() => setCurrentPage('welcome')}
+						ref={buttonRef}
+						onTriggerClick={() => navigate('/')}
 						text={'Попробовать еще'}
 					/>
 				</ButtonWrapper>

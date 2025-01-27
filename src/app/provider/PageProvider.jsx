@@ -4,12 +4,14 @@ import { useState } from 'react';
 import { PageContext } from '@/shared/context';
 
 export const PageProvider = ({ children }) => {
-	const [currentPage, setCurrentPage] = useState('welcome');
+	const [currentPage, setCurrentPage] = useState('/');
+
+	const navigate = url => {
+		setCurrentPage(url);
+	};
 
 	return (
-		<PageContext value={{ currentPage, setCurrentPage }}>
-			{children}
-		</PageContext>
+		<PageContext value={{ currentPage, navigate }}>{children}</PageContext>
 	);
 };
 

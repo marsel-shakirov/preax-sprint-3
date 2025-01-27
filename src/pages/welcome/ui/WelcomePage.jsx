@@ -1,4 +1,3 @@
-import { usePageContext } from '@/shared/context-hooks/usePageContext';
 import PropTypes from 'prop-types';
 
 import { Button } from '@/features/button';
@@ -7,12 +6,21 @@ import { ButtonWrapper } from '@/widgets/button-wrapper';
 import { Counter } from '@/widgets/counter';
 
 import { useCounterContext } from '@/shared/context-hooks';
+import { usePageContext } from '@/shared/context-hooks/usePageContext';
+import { useEnterPressButton } from '@/shared/hooks';
+import { useRef } from 'react';
 
 import styles from './WelcomePage.module.css';
 
 export const WelcomePage = ({ title }) => {
-	const { setCurrentPage } = usePageContext();
+	const { navigate } = usePageContext();
 	const { count } = useCounterContext();
+
+	const buttonRef = useRef(null);
+
+	const isDisabled = !count;
+
+	useEnterPressButton(buttonRef, isDisabled);
 
 	return (
 		<>
@@ -29,16 +37,17 @@ export const WelcomePage = ({ title }) => {
 					<Label labelFor="count">Выбери количество вопросов:</Label>
 					<Counter />
 				</form>
-				<ButtonWrapper isDisabled={!count}>
+				<ButtonWrapper isDisabled={isDisabled}>
 					<Button
 						onTriggerClick={e => {
 							e.preventDefault();
-							setCurrentPage('card');
+							navigate('/card');
 						}}
-						isDisabled={!count}
+						isDisabled={isDisabled}
 						text="Начать"
 						type="submit"
 						form="welcome"
+						ref={buttonRef}
 					/>
 				</ButtonWrapper>
 			</section>

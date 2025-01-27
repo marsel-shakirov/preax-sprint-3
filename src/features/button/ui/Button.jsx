@@ -12,9 +12,11 @@ export const Button = ({
 	type = 'button',
 	form,
 	ariaLabel,
+	ref,
 }) => {
 	return (
 		<button
+			ref={ref}
 			onClick={onTriggerClick}
 			className={`${styles.btn} ${getClasses(styles, styled)}`}
 			type={type}
@@ -36,4 +38,5 @@ Button.propTypes = {
 	form: PropTypes.string,
 	dataAttribute: PropTypes.string,
 	ariaLabel: PropTypes.string,
+	ref: PropTypes.node,
 };

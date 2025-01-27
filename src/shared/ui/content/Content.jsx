@@ -6,9 +6,9 @@ export const Content = ({ WelcomePage, CardPage, ResultPage }) => {
 
 	return (
 		<main>
-			{currentPage === 'welcome' && <WelcomePage title="Welcome" />}
-			{currentPage === 'card' && <CardPage title="Card" />}
-			{currentPage === 'result' && (
+			{currentPage === '/' && <WelcomePage title="Welcome" />}
+			{currentPage === '/card' && <CardPage title="Card" />}
+			{currentPage === '/result' && (
 				<ResultPage title="Result" result="result-fail" />
 			)}
 			{/* <ResultPage title="Result" result="result-well" />*/}
