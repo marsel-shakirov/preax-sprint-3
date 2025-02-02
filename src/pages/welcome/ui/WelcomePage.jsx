@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { Button } from '@/features/button';
-import { Label } from '@/shared/ui';
-import { ButtonWrapper } from '@/widgets/button-wrapper';
+import { ButtonWrapper, Label } from '@/shared/ui';
 import { Counter } from '@/widgets/counter';
 
 import { useCounterContext } from '@/shared/context-hooks';

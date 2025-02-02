@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 import { Button } from '@/features/button';
-import { ButtonWrapper } from '@/widgets/button-wrapper';
+import { ButtonWrapper } from '@/shared/ui';
 
 import { usePageContext } from '@/shared/context-hooks/usePageContext';
 import { useEnterPressButton } from '@/shared/hooks';

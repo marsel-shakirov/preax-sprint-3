@@ -5,10 +5,7 @@ import { useEnterPressButton } from '@/shared/hooks';
 import { useRef, useState } from 'react';
 
 import { Button } from '@/features/button';
-import { Input as RadioButton } from '@/features/input';
-import { Label, Question } from '@/shared/ui';
-import { Answer } from '@/widgets/answer';
-import { ButtonWrapper } from '@/widgets/button-wrapper';
+import { Answer, ButtonWrapper, Question, QuizContainer } from '@/shared/ui';
 
 import { quizQuestions } from '@/shared/api/index';
 import { getRandomArrayElements } from '../model/getRandomArrayElements';
@@ -34,7 +31,7 @@ export const CardPage = ({ title }) => {
 
 	const buttonRef = useRef(null);
 
-	const isHaveSomeQuestions = activeIndex >= count;
+	const isNotHaveSomeQuestions = activeIndex >= count;
 
 	useEnterPressButton(buttonRef, isDisabled);
 
@@ -50,27 +47,13 @@ export const CardPage = ({ title }) => {
 				<form id="quiz" className={styles.cardWrapper}>
 					{renderQuizQuestions.map(
 						({ question, correctAnswer, flag, countries }, index) => (
-							<Answer
+							<QuizContainer
 								isShowAnswer={activeIndex === index + 1}
 								key={`${correctAnswer}_${index}`}
 							>
 								<Question title={question} imageSrc={flag} />
-
-								<fieldset className={styles.quiz}>
-									{countries.map((country, index) => (
-										<Label key={`${country}_${index}`}>
-											<RadioButton
-												styled={{ classes: ['cardInput'] }}
-												onChange={handleCheckedCard}
-												type="radio"
-												name="answer"
-												value={++index}
-											/>
-											<span className={styles.quizText}>{country}</span>
-										</Label>
-									))}
-								</fieldset>
-							</Answer>
+								<Answer countries={countries} onChange={handleCheckedCard} />
+							</QuizContainer>
 						)
 					)}
 				</form>
@@ -80,7 +63,7 @@ export const CardPage = ({ title }) => {
 							ref={buttonRef}
 							isDisabled={isDisabled}
 							onTriggerClick={() => {
-								isHaveSomeQuestions && navigate('/result');
+								isNotHaveSomeQuestions && navigate('/result');
 								setActiveIndex(activeIndex + 1);
 								setDisabled(true);
 							}}

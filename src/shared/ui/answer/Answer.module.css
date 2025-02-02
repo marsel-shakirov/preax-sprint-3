@@ -1,0 +1,29 @@
+.quiz {
+	display: flex;
+	flex-direction: column;
+	row-gap: var(--row-gap-card);
+	counter-reset: count 0;
+}
+
+.quizText {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	padding-block: 1.2rem;
+	padding-inline: 4.2rem;
+	border-radius: 6px;
+	counter-increment: count 1;
+}
+
+.quizText::before {
+	content: counter(count);
+	position: absolute;
+	top: 12px;
+	left: 15px;
+	z-index: 10;
+	color: var(--main-color);
+	font-weight: 700;
+}

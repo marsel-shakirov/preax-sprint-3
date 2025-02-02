@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 
-export const Answer = ({ children, isShowAnswer }) => {
+export const QuizContainer = ({ children, isShowAnswer }) => {
 	return <>{isShowAnswer && children}</>;
 };
 
-Answer.propTypes = {
+QuizContainer.propTypes = {
 	children: PropTypes.node,
 	isShowAnswer: PropTypes.bool,
 };
