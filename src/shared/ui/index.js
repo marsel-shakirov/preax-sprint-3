@@ -13,3 +13,5 @@ export { Answer } from './answer/Answer';
 export { ButtonWrapper } from './button-wrapper/ButtonWrapper';
 
 export { QuizContainer } from './quiz-container/QuizContainer';
+
+export { Icon } from './icon/Icon';

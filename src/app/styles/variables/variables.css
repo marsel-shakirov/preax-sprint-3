@@ -1,31 +1,62 @@
 :root {
-	--font-family-base: 'Inter', serif;
-	--main-font-size: 62.5%;
+	--font-family: 'Inter', serif;
+	--container-min-width: 1280px;
 
-	--container-padding-x: 3.2rem;
+	--color-dark-blue: #125365;
+	--color-light-gray: #f1f1ef;
+	--color-bright-orange: #ff9c46;
+	--color-light-beige: #edd0b6;
+	--color-light-green: #d3e3d3;
+	--color-green: #2a8f55;
+	--color-red: #df4c25;
+	--color-transparent-black: rgba(0, 0, 0, 0.3);
+	--color-translucent-black: rgba(0, 0, 0, 0.5);
+	--color-translucent-blue: rgba(18, 83, 101, 0.7);
 
-	--row-gap: 32px;
-	--row-gap-card: 16px;
+	--font-size-base: 62.5%;
+	--font-size-xlg: 3.6rem;
+	--font-size-lg: 2.8rem;
+	--font-size-md: 2rem;
+	--font-size-sm: 1.4rem;
+	--font-size-xs: 1rem;
 
-	--main-color: #125365;
-	--second-main-color: #ff9c46;
-	--content-white-color: #f1f1ef;
-	--button-main-disabled: #edd0b6;
+	--font-weight-regular: 400;
+	--font-weight-medium: 500;
+	--font-weight-bold: 700;
 
-	--main-border-radius: 10px;
-	--border-circle-radius: 50%;
-	--counter-border-radius: 5px;
+	--gap: 32px;
+	--gap-lg: 21px;
+	--gap-md: 16px;
+	--gap-sm: 14px;
+	--gap-xs: 12px;
+
+	--padding-lg: 4.2rem;
+	--padding-md: 3.2rem;
+	--padding-sm: 1.6rem;
+	--padding-xs: 1.2rem;
+
+	--border-radius-circle: 50%;
+	--border-radius-main: 10px;
+	--border-radius-quiz-input: 6px;
+	--border-radius-counter: 5px;
+	--border-radius-close: 4px;
+
+	--border-width-md: 4px;
+	--border-width-sm: 3px;
+	--border-width-xthin: 1px;
 
 	--deg: 45deg;
-	--c1: #125365 43%;
+	--c1: var(--color-dark-blue) 43%;
 	--c2: #ff723f 43% 53.5%;
-	--c3: #ff9c46 53.5% 81%;
+	--c3: var(--color-bright-orange) 53.5% 81%;
 	--c4: #ffca4a 81%;
-	--grad: linear-gradient(
+	--gradient-body: linear-gradient(
 		var(--deg),
 		var(--c1),
 		var(--c2),
 		var(--c3),
 		var(--c4)
 	);
+
+	--animate-duration: 0.2s;
 }

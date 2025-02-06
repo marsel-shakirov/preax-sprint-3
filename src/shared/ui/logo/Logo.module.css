@@ -1,3 +1,10 @@
 .logo {
-	display: block;
+	display: flex;
+	transition: opacity var(--animate-duration);
+}
+
+@media (any-hover: hover) {
+	.logo:hover {
+		opacity: 0.8;
+	}
 }

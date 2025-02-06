@@ -1,15 +1,14 @@
 .quizBlock {
 	display: flex;
 	flex-direction: column;
-	row-gap: 16px;
+	row-gap: var(--gap-md);
 	margin: 0;
 }
 
 .quizPicture {
-	border-radius: 10px;
+	border-radius: var(--border-radius-main);
 }
 
 .quizTitle {
-	padding-inline: 0;
 	line-height: 1.142;
 }

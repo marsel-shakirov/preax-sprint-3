@@ -6,33 +6,31 @@
 .main {
 	min-width: 270px;
 	min-height: 72px;
-	border: 1px solid currentColor;
 	border: none;
-	font-size: 2rem;
-	font-weight: 700;
-	color: var(--content-white-color);
-	border-radius: var(--main-border-radius);
-	background-color: var(--second-main-color);
-	cursor: pointer;
+	font-size: var(--font-size-md);
+	font-weight: var(--font-weight-bold);
+	color: var(--color-light-gray);
+	border-radius: var(--border-radius-main);
+	background-color: var(--color-bright-orange);
 	user-select: none;
-	transition: border 0.3s, color 0.3s;
 }
 
 .main:disabled {
 	cursor: default;
-	background-color: var(--button-main-disabled);
+	background-color: var(--color-light-beige);
 }
 
 .counter {
+	--size-counter: 50px;
+	--color-counter: var(--color-dark-blue);
 	position: relative;
-	width: 50px;
-	height: 50px;
+	width: var(--size-counter);
+	height: var(--size-counter);
 	padding: initial;
-	color: var(--main-color);
-	border: 4px solid currentColor;
-	border-radius: var(--border-circle-radius);
+	color: var(--color-counter);
+	border: var(--border-width-md) solid currentColor;
+	border-radius: var(--border-radius-circle);
 	background-color: transparent;
-	cursor: pointer;
 }
 
 .counter:disabled {
@@ -48,7 +46,7 @@
 	transform: translate(62%, -44%);
 	width: 19px;
 	height: 4px;
-	border-radius: var(--counter-border-radius);
+	border-radius: var(--border-radius-counter);
 	background-color: currentColor;
 }
 
@@ -59,25 +57,22 @@
 	transform: translate(19px, -49%);
 	width: 4px;
 	height: 19px;
-	border-radius: var(--counter-border-radius);
+	border-radius: var(--border-radius-counter);
 	background-color: currentColor;
 }
 
-:not(.btn:disabled):where(.decrement:hover, .increment:hover) {
-	color: var(--second-main-color);
-}
-
 .close {
-	width: 33px;
-	height: 33px;
+	--size-btnClose: 33px;
+	width: var(--size-btnClose);
+	height: var(--size-btnClose);
 	padding: initial;
-	color: rgba(0, 0, 0, 0.3);
+	color: var(--color-transparent-black);
 	background-color: radial-gradient(
 		transparent 50%,
-		var(--content-white-color) 100%
+		var(--color-light-gray) 100%
 	);
-	border: 3px solid var(--content-white-color);
-	border-radius: var(--border-circle-radius);
+	border: var(--border-width-sm) solid var(--color-light-gray);
+	border-radius: var(--border-radius-circle);
 }
 
 .close::before,
@@ -89,8 +84,8 @@
 	left: 5px;
 	width: 16px;
 	height: 3px;
-	background-color: var(--content-white-color);
-	border-radius: 4px;
+	background-color: var(--color-light-gray);
+	border-radius: var(--border-radius-close);
 }
 
 .close::before {
@@ -102,11 +97,16 @@
 }
 
 :not(.btn:disabled, .close, .counter):where(.btn:active, .btn:hover) {
-	box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
+	box-shadow: inset 0 0 3px var(--color-translucent-black);
 	transition: none;
 }
 
-.close:hover::before,
-.close:hover::after {
-	opacity: 0.7;
+@media (any-hover: hover) {
+	:not(.btn:disabled):where(.counter:hover) {
+		--color-counter: var(--color-bright-orange);
+	}
+	.close:hover::before,
+	.close:hover::after {
+		opacity: 0.7;
+	}
 }

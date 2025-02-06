@@ -5,11 +5,12 @@
 }
 
 .menu {
+	--size-menu: 40px;
 	display: flex;
 	justify-content: center;
 	align-items: flex-end;
-	width: 40px;
-	height: 40px;
+	width: var(--size-menu);
+	height: var(--size-menu);
 	margin-block-start: 0;
 	margin-block-end: 0;
 	padding-inline-start: 0;

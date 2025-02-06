@@ -8,11 +8,15 @@ export const Content = ({ WelcomePage, CardPage, ResultPage }) => {
 		<main>
 			{currentPage === '/' && <WelcomePage title="Welcome" />}
 			{currentPage === '/card' && <CardPage title="Card" />}
-			{currentPage === '/result' && (
+			{/* {currentPage === '/result' && (
 				<ResultPage title="Result" result="result-fail" />
+			)} */}
+			{/* {currentPage === '/result' && (
+				<ResultPage title="Result" result="result-well" />
+			)} */}
+			{currentPage === '/result' && (
+				<ResultPage title="Result" result="result" />
 			)}
-			{/* <ResultPage title="Result" result="result-well" />*/}
-			{/* <ResultPage title="Result" result="result" />*/}
 		</main>
 	);
 };

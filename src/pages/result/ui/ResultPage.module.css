@@ -1,10 +1,13 @@
 .result {
+	--font-weight-result: inherit;
+	font-weight: var(--font-weight-result);
 	align-items: center;
 }
 
 .resultImage {
-	width: 196px;
-	height: 196px;
+	--size-resultImage: 196px;
+	width: var(--size-resultImage);
+	height: var(--size-resultImage);
 	background-image: url(/assets/images/illustration/result.png);
 	background-position: 50% 90%;
 	background-repeat: no-repeat;
@@ -17,22 +20,25 @@
 .resultWrapper {
 	display: flex;
 	flex-direction: column;
-	row-gap: 16px;
+	row-gap: var(--gap-md);
 	text-align: center;
 }
 
 .resultCorrect {
-	font-weight: 700;
-	color: #2a8f55;
+	--font-weight-result: var(--font-weight-bold);
+	font-weight: var(--font-weight-result);
+	color: var(--color-green);
 }
 
 .resultMistake {
-	font-weight: 700;
-	color: #df4c25;
+	--font-weight-result: var(--font-weight-bold);
+	font-weight: var(--font-weight-result);
+	color: var(--color-red);
 }
 
 .resultTitle {
+	--font-weight-result: var(--font-weight-bold);
 	margin-block: 0;
-	font-size: 3.6rem;
-	font-weight: 700;
+	font-size: var(--font-size-xlg);
+	font-weight: var(--font-weight-result);
 }

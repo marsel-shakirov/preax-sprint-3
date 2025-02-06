@@ -1,19 +1,12 @@
-import LogoSVG from '/assets/svg/logo/logo.svg';
+import { Icon } from '@/shared/ui';
 
 import styles from './Logo.module.css';
 
 export const Logo = () => {
 	return (
-		<div className={styles.flex}>
-			<a href="/">
-				<img
-					className={styles.logo}
-					src={LogoSVG}
-					alt="Quiz - викторина по странам и столицам"
-					width="178"
-					height="48"
-				/>
-			</a>
-		</div>
+		<a className={styles.logo} href="/">
+			<Icon name="logo" color="#F1F1EF" width={179} height={48} />
+			<p className="visually-hidden">Главная</p>
+		</a>
 	);
 };

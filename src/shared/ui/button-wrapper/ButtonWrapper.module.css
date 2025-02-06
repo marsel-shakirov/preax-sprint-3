@@ -1,13 +1,14 @@
 .buttonWrapper {
 	display: flex;
 	flex-direction: column;
-	row-gap: 8px;
+	row-gap: var(--gap-xs);
 }
 
 .buttonDesc {
-	font-size: 1rem;
-	font-weight: 400;
+	font-size: var(--font-size-xs);
+	font-weight: var(--font-weight-regular);
 	text-align: center;
+	user-select: none;
 }
 
 .buttonDesc.disabled {
@@ -15,7 +16,7 @@
 }
 
 .buttonEnter {
-	font-weight: 700;
+	font-weight: var(--font-weight-bold);
 }
 
 .buttonEnter::after {

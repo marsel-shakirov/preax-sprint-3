@@ -1,7 +1,7 @@
 .quiz {
 	display: flex;
 	flex-direction: column;
-	row-gap: var(--row-gap-card);
+	row-gap: var(--gap-md);
 	counter-reset: count 0;
 }
 
@@ -12,9 +12,9 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	padding-block: 1.2rem;
-	padding-inline: 4.2rem;
-	border-radius: 6px;
+	padding-block: var(--padding-xs);
+	padding-inline: var(--padding-lg);
+	border-radius: var(--border-radius-quiz-input);
 	counter-increment: count 1;
 }
 
@@ -24,6 +24,6 @@
 	top: 12px;
 	left: 15px;
 	z-index: 10;
-	color: var(--main-color);
-	font-weight: 700;
+	font-weight: var(--font-weight-bold);
+	color: var(--color-dark-blue);
 }

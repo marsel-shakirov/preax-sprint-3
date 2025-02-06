@@ -2,14 +2,14 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-width: 1280px;
+	min-width: var(--container-min-width);
 	height: max(812px, 100dvh);
-	padding-inline: var(--container-padding-x);
+	padding-inline: var(--padding-md);
 }
 
 .wrapper {
 	display: flex;
 	flex-direction: column;
-	row-gap: 16px;
+	row-gap: var(--gap-md);
 	width: 590px;
 }

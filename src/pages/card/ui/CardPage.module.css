@@ -10,8 +10,8 @@
 }
 
 .cardCount {
-	font-size: 2rem;
-	font-weight: 700;
+	font-size: var(--font-size-md);
+	font-weight: var(--font-weight-bold);
 	letter-spacing: 0.7px;
 	padding-top: calc(52px / 2);
 }

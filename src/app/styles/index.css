@@ -5,7 +5,7 @@
 @import url(@/app/styles/variables/variables.css);
 
 :root {
-	font-size: var(--main-font-size);
+	font-size: var(--font-size-base);
 	font-synthesis: none;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
@@ -13,14 +13,14 @@
 }
 
 body {
-	font-family: var(--font-family-base);
+	font-family: var(--font-family);
 	font-optical-sizing: none;
-	font-weight: 500;
+	font-weight: var(--font-weight-medium);
 	font-style: normal;
-	font-size: 2.8rem;
+	font-size: var(--font-size-lg);
 	line-height: 1.2;
-	color: var(--main-color);
-	background-image: var(--grad);
+	color: var(--color-dark-blue);
+	background-image: var(--gradient-body);
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
@@ -30,8 +30,21 @@ body {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	row-gap: var(--row-gap);
-	padding: 3.2rem;
-	background-color: var(--content-white-color);
-	border-radius: var(--main-border-radius);
+	row-gap: var(--gap);
+	padding: var(--padding-md);
+	background-color: var(--color-light-gray);
+	border-radius: var(--border-radius-sm);
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	white-space: nowrap;
+	clip-path: inset(100%);
+	clip: rect(0 0 0 0);
+	overflow: hidden;
 }

@@ -23,7 +23,7 @@ export const ResultPage = ({ title, result = '/result' }) => {
 			<title>{`QuizApp | ${title}`}</title>
 
 			<section className={`content ${styles.result}`}>
-				<div className={styles['resultImage']}></div>
+				<div className={styles.resultImage}></div>
 				<div className={styles.resultWrapper}>
 					<h2 className={styles.resultTitle}>Результат</h2>
 					<RenderResultText styles={styles} result={result} />
