@@ -5,7 +5,7 @@ import {
 	useEnterPressButton,
 	usePageContext,
 } from '@/shared/hooks';
-import { useRef, useState } from 'react';
+import { useId, useRef, useState } from 'react';
 
 import { Button } from '@/features/button';
 import { Answer, ButtonWrapper, Question, QuizContainer } from '@/shared/ui';
@@ -34,10 +34,8 @@ export const CardPage = ({ title }) => {
 		})
 	);
 
-	console.log(renderQuizQuestions);
-
 	const buttonRef = useRef(null);
-
+	const quizFormId = useId();
 	const isNotHaveSomeQuestions = activeIndex >= count;
 
 	useEnterPressButton(buttonRef, isDisabled);
@@ -51,7 +49,7 @@ export const CardPage = ({ title }) => {
 			<title>{`QuizApp | ${title}`}</title>
 
 			<section className="content">
-				<form id="quiz" className={styles.cardWrapper}>
+				<form id={quizFormId} className={styles.cardWrapper}>
 					{renderQuizQuestions.map(
 						({ flag, question, correctAnswer, countries }, index) => (
 							<QuizContainer
@@ -76,7 +74,7 @@ export const CardPage = ({ title }) => {
 							}}
 							text="Ответить"
 							type="submit"
-							form="quiz"
+							form={quizFormId}
 						/>
 					</ButtonWrapper>
 					<span className={styles.cardCount}>

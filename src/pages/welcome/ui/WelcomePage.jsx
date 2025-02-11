@@ -9,7 +9,8 @@ import {
 	useEnterPressButton,
 	usePageContext,
 } from '@/shared/hooks';
-import { useRef } from 'react';
+
+import { useId, useRef } from 'react';
 
 import styles from './WelcomePage.module.css';
 
@@ -23,6 +24,8 @@ export const WelcomePage = ({ title }) => {
 
 	useEnterPressButton(buttonRef, isDisabled);
 
+	const welcomeFormId = useId();
+
 	return (
 		<>
 			<title>{`QuizApp | ${title}`}</title>
@@ -34,7 +37,7 @@ export const WelcomePage = ({ title }) => {
 						на викторину по странам и столицам!
 					</span>
 				</h1>
-				<form id="welcome" className={styles.welcomeQuestion}>
+				<form id={welcomeFormId} className={styles.welcomeQuestion}>
 					<Label labelFor="count">Выбери количество вопросов:</Label>
 					<Counter />
 				</form>
@@ -47,7 +50,7 @@ export const WelcomePage = ({ title }) => {
 						isDisabled={isDisabled}
 						text="Начать"
 						type="submit"
-						form="welcome"
+						form={welcomeFormId}
 						ref={buttonRef}
 					/>
 				</ButtonWrapper>
