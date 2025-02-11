@@ -4,9 +4,11 @@ import { Button } from '@/features/button';
 import { ButtonWrapper, Label } from '@/shared/ui';
 import { Counter } from '@/widgets/counter';
 
-import { useCounterContext } from '@/shared/context-hooks';
-import { usePageContext } from '@/shared/context-hooks/usePageContext';
-import { useEnterPressButton } from '@/shared/hooks';
+import {
+	useCounterContext,
+	useEnterPressButton,
+	usePageContext,
+} from '@/shared/hooks';
 import { useRef } from 'react';
 
 import styles from './WelcomePage.module.css';

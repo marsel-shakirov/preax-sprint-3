@@ -1,7 +1,7 @@
 import { Logo } from '@/shared/ui';
 
 import { Button } from '@/features/button';
-import { usePageContext } from '@/shared/context-hooks/usePageContext';
+import { usePageContext } from '@/shared/hooks';
 import styles from './Header.module.css';
 
 export const Header = () => {

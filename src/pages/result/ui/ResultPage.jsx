@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import { Button } from '@/features/button';
 import { ButtonWrapper } from '@/shared/ui';
 
-import { usePageContext } from '@/shared/context-hooks/usePageContext';
-import { useEnterPressButton } from '@/shared/hooks';
+import { useEnterPressButton, usePageContext } from '@/shared/hooks';
 import { useRef } from 'react';
 
 import { RenderResultText } from './RenderResultText';

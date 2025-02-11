@@ -1,4 +1,4 @@
-import { usePageContext } from '@/shared/context-hooks';
+import { usePageContext } from '@/shared/hooks';
 import PropTypes from 'prop-types';
 
 export const Content = ({ WelcomePage, CardPage, ResultPage }) => {

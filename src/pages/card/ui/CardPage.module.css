@@ -1,7 +1,7 @@
 .cardWrapper {
 	display: flex;
 	flex-direction: column;
-	row-gap: var(--row-gap);
+	row-gap: var(--gap);
 }
 
 .cardInner {

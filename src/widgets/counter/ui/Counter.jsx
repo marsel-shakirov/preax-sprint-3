@@ -3,7 +3,7 @@
 import { Button } from '@/features/button';
 import { Input } from '@/features/input';
 
-import { useCounterContext } from '@/shared/context-hooks';
+import { useCounterContext } from '@/shared/hooks';
 
 import styles from './Counter.module.css';
 
