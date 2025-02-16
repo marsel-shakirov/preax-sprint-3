@@ -1,7 +1,13 @@
 import PropTypes from 'prop-types';
 
+import { pluralize } from '@/shared/utils';
+
 export const RenderResultText = ({ styles, result, count }) => {
 	const mistakes = count - result;
+
+	const questionSuffixes = pluralize(result, ['вопрос', 'вопроса', 'вопросов']);
+
+	const mistakeSuffixes = pluralize(mistakes, ['ошибку', 'ошибки', 'ошибок']);
 
 	if (result === count) {
 		return (
@@ -20,11 +26,13 @@ export const RenderResultText = ({ styles, result, count }) => {
 
 	return (
 		<p className={styles.resultDesc}>
-			Ты ответил правильно на&nbsp;
-			<span className={styles.resultCorrect}>{result}</span>&nbsp;вопросов и
-			сделал&nbsp;
+			Ты ответил правильно
+			<br />
+			на&nbsp;
+			<span className={styles.resultCorrect}>{result}</span>&nbsp;
+			{questionSuffixes} и сделал&nbsp;
 			<span className={styles.resultMistake}>{mistakes}</span>
-			&nbsp;ошибок.
+			&nbsp;{mistakeSuffixes}.
 		</p>
 	);
 };
