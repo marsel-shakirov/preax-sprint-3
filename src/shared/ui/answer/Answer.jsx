@@ -13,10 +13,12 @@ export const Answer = ({ countries, onChange }) => {
 					<Label key={`${country}_${index}`}>
 						<RadioButton
 							styled={{ classes: ['cardInput'] }}
-							onChange={onChange}
+							onChange={() => {
+								onChange();
+							}}
 							type="radio"
-							name="answer"
-							value={++index}
+							name={`answer`}
+							value={country}
 						/>
 						<span className={styles.quizText}>{country}</span>
 					</Label>

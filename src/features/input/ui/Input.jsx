@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { getClasses } from '@/shared/model';
+import { getClasses } from '@/shared/utils';
 
 import styles from './Input.module.css';
 

@@ -1,6 +1,5 @@
 .welcome {
 	align-items: center;
-	border-radius: var(--border-radius-main);
 }
 
 .welcome::after {

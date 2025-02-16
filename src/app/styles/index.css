@@ -33,7 +33,7 @@ body {
 	row-gap: var(--gap);
 	padding: var(--padding-md);
 	background-color: var(--color-light-gray);
-	border-radius: var(--border-radius-sm);
+	border-radius: var(--border-radius-main);
 }
 
 .visually-hidden {

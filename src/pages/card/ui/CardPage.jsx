@@ -4,44 +4,81 @@ import {
 	useCounterContext,
 	useEnterPressButton,
 	usePageContext,
+	useResultContext,
 } from '@/shared/hooks';
-import { useId, useRef, useState } from 'react';
+import { useActionState, useEffect, useId, useRef, useState } from 'react';
 
 import { Button } from '@/features/button';
 import { Answer, ButtonWrapper, Question, QuizContainer } from '@/shared/ui';
 
 import { getRandomArrayElements } from '../model/getRandomArrayElements';
 
-import { quizQuestions } from '@/shared/api';
+import { action, quizQuestions } from '@/shared/api';
 
 import styles from './CardPage.module.css';
 
 export const CardPage = ({ title }) => {
 	const { count } = useCounterContext();
 	const { navigate } = usePageContext();
+	const { setResultQuiz } = useResultContext();
 
-	const [activeIndex, setActiveIndex] = useState(1);
+	const quizFormId = useId();
+	const [activeIndex, setActiveIndex] = useState(0);
 	const [isDisabled, setDisabled] = useState(true);
-
-	const { questions, countries } = quizQuestions;
-
 	const [renderQuizQuestions] = useState(
-		getRandomArrayElements(questions, count).map(obj => {
+		getRandomArrayElements(quizQuestions.questions, count).map(obj => {
 			return {
 				...obj,
-				countries: getRandomArrayElements(countries, 4, obj.correctAnswer),
+				countries: getRandomArrayElements(
+					quizQuestions.countries,
+					4,
+					obj.correctAnswer
+				),
 			};
 		})
 	);
-
+	const [state, formAction] = useActionState(action, []);
 	const buttonRef = useRef(null);
-	const quizFormId = useId();
-	const isNotHaveSomeQuestions = activeIndex >= count;
 
 	useEnterPressButton(buttonRef, isDisabled);
 
+	const currentCountQuestion = activeIndex + 1;
+
 	const handleCheckedCard = () => {
 		setDisabled(false);
+	};
+
+	useEffect(() => {
+		if (currentCountQuestion > count) {
+			const countOfCorrectAnswers = renderQuizQuestions.reduce(
+				(acc, element) => {
+					if (state.includes(element.correctAnswer)) {
+						return (acc += 1);
+					}
+					return acc;
+				},
+				0
+			);
+			setResultQuiz(countOfCorrectAnswers);
+			navigate('/result');
+		}
+	}, [
+		currentCountQuestion,
+		count,
+		setResultQuiz,
+		navigate,
+		renderQuizQuestions,
+		state,
+	]);
+
+	const handleFormSubmit = async event => {
+		event.preventDefault();
+
+		const formData = new FormData(event.currentTarget);
+
+		setActiveIndex(activeIndex + 1);
+		setDisabled(true);
+		formAction(formData);
 	};
 
 	return (
@@ -49,11 +86,15 @@ export const CardPage = ({ title }) => {
 			<title>{`QuizApp | ${title}`}</title>
 
 			<section className="content">
-				<form id={quizFormId} className={styles.cardWrapper}>
+				<form
+					onSubmit={handleFormSubmit}
+					id={quizFormId}
+					className={styles.cardWrapper}
+				>
 					{renderQuizQuestions.map(
 						({ flag, question, correctAnswer, countries }, index) => (
 							<QuizContainer
-								isShowAnswer={activeIndex === index + 1}
+								isShowAnswer={activeIndex === index}
 								key={`${index}_${correctAnswer}`}
 							>
 								<Question title={question} imageSrc={flag} />
@@ -67,18 +108,13 @@ export const CardPage = ({ title }) => {
 						<Button
 							ref={buttonRef}
 							isDisabled={isDisabled}
-							onTriggerClick={() => {
-								isNotHaveSomeQuestions && navigate('/result');
-								setActiveIndex(activeIndex + 1);
-								setDisabled(true);
-							}}
 							text="Ответить"
 							type="submit"
 							form={quizFormId}
 						/>
 					</ButtonWrapper>
 					<span className={styles.cardCount}>
-						{activeIndex}&nbsp;/&nbsp;{count}
+						{currentCountQuestion}&nbsp;/&nbsp;{count}
 					</span>
 				</div>
 			</section>

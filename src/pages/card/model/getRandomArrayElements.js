@@ -22,7 +22,7 @@ export const getRandomArrayElements = (array, count, correctAnswer = null) => {
 		uniqueCountries.push(array[i]);
 	} while (storage.size < count);
 
-	// перетасовать вопросы с правильным ответом (у правильного индекс 1)
+	// перетасовать вопросы с правильным ответом
 	if (correctAnswer) {
 		function shuffle(array) {
 			let arr;
