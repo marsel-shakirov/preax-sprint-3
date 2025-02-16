@@ -14,8 +14,10 @@
 	height: 100%;
 	padding-block: var(--padding-xs);
 	padding-inline: var(--padding-lg);
-	border-radius: var(--border-radius-quiz-input);
+	border-radius: var(--border-radius-main);
+	border: var(--border-width-md) solid currentColor;
 	counter-increment: count 1;
+	user-select: none;
 }
 
 .quizText::before {
@@ -28,10 +30,31 @@
 	color: var(--color-dark-blue);
 }
 
+.quizText.rightAnswer {
+	color: var(--color-light-gray);
+	border-color: var(--color-green);
+	background-color: var(--color-green);
+}
+
+.quizText.rightAnswer::before {
+	color: var(--color-light-gray);
+}
+
 input[type='radio']:checked + .quizText {
+	border-color: var(--color-bright-orange);
 	background-color: var(--color-bright-orange);
 }
 
 input[type='radio']:checked + .quizText::before {
 	color: var(--color-light-gray);
+}
+
+input[type='radio']:checked + .quizText.rightAnswer {
+	border-color: var(--color-green);
+	background-color: var(--color-green);
+}
+
+input[type='radio']:checked + .quizText.wrongAnswer {
+	border-color: var(--color-red);
+	background-color: var(--color-red);
 }

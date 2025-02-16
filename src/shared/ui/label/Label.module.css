@@ -3,9 +3,6 @@
 	height: 56px;
 	font-size: var(--font-size-md);
 	color: var(--color-dark-blue);
-	border: var(--border-width-md) solid currentColor;
-	border-radius: var(--border-radius-main);
-	user-select: none;
 }
 
 .label:has(input[type='radio'] + span):hover {

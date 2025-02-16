@@ -71,14 +71,24 @@ export const CardPage = ({ title }) => {
 		state,
 	]);
 
+	console.log(state);
+
+	const [isCheckResult, setIsCheckResult] = useState(true);
+
 	const handleFormSubmit = async event => {
 		event.preventDefault();
 
-		const formData = new FormData(event.currentTarget);
+		if (!isCheckResult) {
+			setActiveIndex(activeIndex + 1);
+			setIsCheckResult(true);
+			setDisabled(true);
+		}
 
-		setActiveIndex(activeIndex + 1);
-		setDisabled(true);
-		formAction(formData);
+		if (isCheckResult) {
+			const formData = new FormData(event.currentTarget);
+			formAction(formData);
+			setIsCheckResult(false);
+		}
 	};
 
 	return (
@@ -98,7 +108,12 @@ export const CardPage = ({ title }) => {
 								key={`${index}_${correctAnswer}`}
 							>
 								<Question title={question} imageSrc={flag} />
-								<Answer countries={countries} onChange={handleCheckedCard} />
+								<Answer
+									isCheckResult={isCheckResult}
+									correctAnswer={correctAnswer}
+									countries={countries}
+									onChange={handleCheckedCard}
+								/>
 							</QuizContainer>
 						)
 					)}
@@ -108,7 +123,13 @@ export const CardPage = ({ title }) => {
 						<Button
 							ref={buttonRef}
 							isDisabled={isDisabled}
-							text="Ответить"
+							text={
+								isCheckResult
+									? 'Ответить'
+									: currentCountQuestion === count
+									? 'Результат'
+									: 'Дальше'
+							}
 							type="submit"
 							form={quizFormId}
 						/>

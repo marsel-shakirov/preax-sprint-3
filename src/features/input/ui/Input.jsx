@@ -12,6 +12,7 @@ export const Input = ({
 	name,
 	onChange,
 	onFocus,
+	isDisabled = 'false',
 }) => {
 	return (
 		<input
@@ -22,6 +23,7 @@ export const Input = ({
 			id={id}
 			value={value}
 			name={name}
+			disabled={isDisabled}
 		></input>
 	);
 };
@@ -34,4 +36,5 @@ Input.propTypes = {
 	name: PropTypes.string,
 	onChange: PropTypes.func,
 	onFocus: PropTypes.func,
+	isDisabled: PropTypes.func,
 };
