@@ -31,22 +31,8 @@
 	color: var(--color-bright-orange);
 }
 
-input[type='radio']:checked + span {
-	background-color: var(--color-light-green);
-}
-
 @media (any-hover: hover) {
 	.count:hover {
 		color: var(--color-bright-orange);
 	}
 }
-
-/* input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-	appearance: none;
-	margin: 0;
-}
-
-input[type='number'] {
-	-moz-appearance: textfield;
-} */

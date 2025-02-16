@@ -27,3 +27,11 @@
 	font-weight: var(--font-weight-bold);
 	color: var(--color-dark-blue);
 }
+
+input[type='radio']:checked + .quizText {
+	background-color: var(--color-bright-orange);
+}
+
+input[type='radio']:checked + .quizText::before {
+	color: var(--color-light-gray);
+}
