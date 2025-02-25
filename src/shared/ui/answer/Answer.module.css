@@ -27,7 +27,7 @@
 	left: 15px;
 	z-index: 10;
 	font-weight: var(--font-weight-bold);
-	color: var(--color-dark-blue);
+	color: currentColor;
 }
 
 .quizText.rightAnswer {
@@ -40,7 +40,13 @@
 	color: var(--color-light-gray);
 }
 
+.quizText.wrongAnswer,
+.quizText.rightAnswer {
+	cursor: not-allowed;
+}
+
 input[type='radio']:checked + .quizText {
+	color: var(--color-light-gray);
 	border-color: var(--color-bright-orange);
 	background-color: var(--color-bright-orange);
 }
@@ -52,9 +58,31 @@ input[type='radio']:checked + .quizText::before {
 input[type='radio']:checked + .quizText.rightAnswer {
 	border-color: var(--color-green);
 	background-color: var(--color-green);
+	transition: all 0.2s;
 }
 
 input[type='radio']:checked + .quizText.wrongAnswer {
 	border-color: var(--color-red);
 	background-color: var(--color-red);
+	transition: all 0.2s;
+}
+
+input[type='radio']:checked + .quizText.wrongAnswer::after {
+	content: url('./assets/images/error.svg');
+	position: absolute;
+	right: 17px;
+}
+
+input[type='radio'] + .quizText.rightAnswer::after {
+	content: url('./assets/images/access.svg');
+	position: absolute;
+	right: 17px;
+}
+
+@media (any-hover: hover) {
+	.quizText:not(.quizText.wrongAnswer, .quizText.rightAnswer):hover {
+		color: var(--color-light-gray);
+		border-color: var(--color-bright-orange);
+		background-color: var(--color-bright-orange);
+	}
 }

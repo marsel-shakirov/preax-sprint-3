@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { Button } from '@/features/button';
-import { ButtonWrapper } from '@/shared/ui';
+import { Button, ButtonWrapper } from '@/shared/ui';
 
 import {
 	useCounterContext,

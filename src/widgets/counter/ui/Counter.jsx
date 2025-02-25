@@ -1,7 +1,6 @@
 // import { useState } from 'react';
 
-import { Button } from '@/features/button';
-import { Input } from '@/features/input';
+import { Button, Input } from '@/shared/ui';
 
 import { useCounterContext } from '@/shared/hooks';
 

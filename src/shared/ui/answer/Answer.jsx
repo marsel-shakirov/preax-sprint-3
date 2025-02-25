@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
-import { Input as RadioButton } from '@/features/input';
-import { Label } from '@/shared/ui';
+import { Label, Input as RadioButton } from '@/shared/ui';
 
 import styles from './Answer.module.css';
 
@@ -15,6 +14,9 @@ export const Answer = ({
 		<fieldset className={styles.quiz}>
 			{countries.map((country, index) => {
 				const isRightAnswer = correctAnswer === country;
+				const resultAnswer = isRightAnswer
+					? styles.rightAnswer
+					: styles.wrongAnswer;
 
 				return (
 					<Label key={`${country}_${index}`}>
@@ -24,17 +26,13 @@ export const Answer = ({
 								onChange();
 							}}
 							type="radio"
-							name={`answer`}
+							name="answer"
 							value={country}
-							isDisabled={!isCheckResult}
+							isDisabled={isCheckResult}
 						/>
 						<span
 							className={`${styles.quizText} ${
-								isCheckResult
-									? ''
-									: isRightAnswer
-									? styles.rightAnswer
-									: styles.wrongAnswer
+								isCheckResult ? resultAnswer : ''
 							}`}
 						>
 							{country}

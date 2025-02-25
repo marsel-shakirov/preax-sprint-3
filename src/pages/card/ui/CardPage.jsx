@@ -8,8 +8,13 @@ import {
 } from '@/shared/hooks';
 import { useActionState, useEffect, useId, useRef, useState } from 'react';
 
-import { Button } from '@/features/button';
-import { Answer, ButtonWrapper, Question, QuizContainer } from '@/shared/ui';
+import {
+	Answer,
+	Button,
+	ButtonWrapper,
+	Question,
+	QuizContainer,
+} from '@/shared/ui';
 
 import { getRandomArrayElements } from '../model/getRandomArrayElements';
 
@@ -39,8 +44,8 @@ export const CardPage = ({ title }) => {
 	);
 	const [state, formAction] = useActionState(action, []);
 	const buttonRef = useRef(null);
-
-	useEnterPressButton(buttonRef, isDisabled);
+	const [isCheckResult, setIsCheckResult] = useState(false);
+	const [buttonText, setButtonText] = useState('Ответить');
 
 	const currentCountQuestion = activeIndex + 1;
 
@@ -51,8 +56,8 @@ export const CardPage = ({ title }) => {
 	useEffect(() => {
 		if (currentCountQuestion > count) {
 			const countOfCorrectAnswers = renderQuizQuestions.reduce(
-				(acc, element) => {
-					if (state.includes(element.correctAnswer)) {
+				(acc, element, i) => {
+					if (element.correctAnswer === state[i]) {
 						return (acc += 1);
 					}
 					return acc;
@@ -71,31 +76,33 @@ export const CardPage = ({ title }) => {
 		state,
 	]);
 
-	console.log(state);
-
-	const [isCheckResult, setIsCheckResult] = useState(true);
-
 	const handleFormSubmit = async event => {
 		event.preventDefault();
 
 		if (!isCheckResult) {
-			setActiveIndex(activeIndex + 1);
+			const formData = new FormData(event.currentTarget);
+			formAction(formData);
 			setIsCheckResult(true);
-			setDisabled(true);
+			currentCountQuestion === count
+				? setButtonText('Результат')
+				: setButtonText('Дальше');
 		}
 
 		if (isCheckResult) {
-			const formData = new FormData(event.currentTarget);
-			formAction(formData);
+			setActiveIndex(activeIndex + 1);
 			setIsCheckResult(false);
+			setDisabled(true);
+			setButtonText('Ответить');
 		}
 	};
+
+	useEnterPressButton(buttonRef, isDisabled);
 
 	return (
 		<>
 			<title>{`QuizApp | ${title}`}</title>
 
-			<section className="content">
+			<div className="content">
 				<form
 					onSubmit={handleFormSubmit}
 					id={quizFormId}
@@ -123,13 +130,7 @@ export const CardPage = ({ title }) => {
 						<Button
 							ref={buttonRef}
 							isDisabled={isDisabled}
-							text={
-								isCheckResult
-									? 'Ответить'
-									: currentCountQuestion === count
-									? 'Результат'
-									: 'Дальше'
-							}
+							text={buttonText}
 							type="submit"
 							form={quizFormId}
 						/>
@@ -138,7 +139,7 @@ export const CardPage = ({ title }) => {
 						{currentCountQuestion}&nbsp;/&nbsp;{count}
 					</span>
 				</div>
-			</section>
+			</div>
 		</>
 	);
 };

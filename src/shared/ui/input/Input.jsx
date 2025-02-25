@@ -12,7 +12,7 @@ export const Input = ({
 	name,
 	onChange,
 	onFocus,
-	isDisabled = 'false',
+	isDisabled = false,
 }) => {
 	return (
 		<input

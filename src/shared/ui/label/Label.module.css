@@ -2,18 +2,4 @@
 	position: relative;
 	height: 56px;
 	font-size: var(--font-size-md);
-	color: var(--color-dark-blue);
-}
-
-.label:has(input[type='radio'] + span):hover {
-	border-color: var(--color-translucent-blue);
-}
-
-.label:has(input[type='radio'] + span):active {
-	border-color: var(--color-dark-blue);
-}
-
-.label:has(input[type='radio']:checked + span) {
-	color: var(--color-light-gray);
-	border-color: var(--color-bright-orange);
 }

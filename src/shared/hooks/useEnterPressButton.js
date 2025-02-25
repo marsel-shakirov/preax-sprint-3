@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 export const useEnterPressButton = (nodeElement, isDisabled = false) => {
 	useEffect(() => {
-		function handleEnterKeyDown(event) {
+		function handleEnterKeyUp(event) {
 			const isDocumentBody = event.target.tagName === 'BODY';
 
 			if (!isDisabled && isDocumentBody && event.code === 'Enter') {
@@ -10,7 +10,7 @@ export const useEnterPressButton = (nodeElement, isDisabled = false) => {
 			}
 		}
 
-		window.addEventListener('keydown', handleEnterKeyDown);
-		return () => window.removeEventListener('keydown', handleEnterKeyDown);
+		window.addEventListener('keyup', handleEnterKeyUp);
+		return () => window.removeEventListener('keyup', handleEnterKeyUp);
 	}, [isDisabled, nodeElement]);
 };

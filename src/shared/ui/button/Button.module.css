@@ -66,12 +66,12 @@
 	width: var(--size-btnClose);
 	height: var(--size-btnClose);
 	padding: initial;
-	color: var(--color-transparent-black);
+	color: var(--color-light-gray);
 	background-color: radial-gradient(
 		transparent 50%,
 		var(--color-light-gray) 100%
 	);
-	border: var(--border-width-sm) solid var(--color-light-gray);
+	border: var(--border-width-sm) solid currentColor;
 	border-radius: var(--border-radius-circle);
 }
 
@@ -84,7 +84,7 @@
 	left: 5px;
 	width: 16px;
 	height: 3px;
-	background-color: var(--color-light-gray);
+	background-color: currentColor;
 	border-radius: var(--border-radius-close);
 }
 
@@ -105,8 +105,7 @@
 	:not(.btn:disabled):where(.counter:hover) {
 		--color-counter: var(--color-bright-orange);
 	}
-	.close:hover::before,
-	.close:hover::after {
-		opacity: 0.7;
+	.close:hover {
+		color: var(--color-translucent-blue);
 	}
 }
