@@ -21,7 +21,7 @@ export const ResultPage = ({ title }) => {
 
 	const buttonRef = useRef(null);
 
-	useEnterPressButton(buttonRef);
+	useEnterPressButton(() => navigate('/'));
 
 	return (
 		<>
@@ -36,7 +36,7 @@ export const ResultPage = ({ title }) => {
 				<ButtonWrapper>
 					<Button
 						ref={buttonRef}
-						onTriggerClick={() => {
+						onClick={() => {
 							dispatch({ type: 'init-one' });
 							navigate('/');
 						}}

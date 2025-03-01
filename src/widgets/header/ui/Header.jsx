@@ -16,7 +16,7 @@ export const Header = () => {
 					<li className={styles.item}>
 						<Button
 							styled={{ classes: ['close'] }}
-							onTriggerClick={() => {
+							onClick={() => {
 								dispatch({ type: 'init-one' });
 								navigate('/');
 							}}

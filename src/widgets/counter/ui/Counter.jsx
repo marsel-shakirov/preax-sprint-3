@@ -1,5 +1,3 @@
-// import { useState } from 'react';
-
 import { Button, Input } from '@/shared/ui';
 
 import { useCounterContext } from '@/shared/hooks';
@@ -15,7 +13,7 @@ export const Counter = () => {
 		<div className={styles.counter}>
 			<Button
 				styled={{ classes: ['counter', 'decrement'] }}
-				onTriggerClick={() => dispatch({ type: 'decrement' })}
+				onClick={() => dispatch({ type: 'decrement' })}
 				isDisabled={count <= MIN_COUNT_VALUE}
 				ariaLabel="Уменьшить вопросы"
 			/>
@@ -34,7 +32,9 @@ export const Counter = () => {
 			/>
 			<Button
 				styled={{ classes: ['counter', 'increment'] }}
-				onTriggerClick={() => dispatch({ type: 'increment' })}
+				onClick={() => {
+					dispatch({ type: 'increment' });
+				}}
 				isDisabled={count >= MAX_COUNT_VALUE}
 				ariaLabel="Добавить вопросы"
 			/>

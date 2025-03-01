@@ -21,7 +21,7 @@ export const WelcomePage = ({ title }) => {
 
 	const isDisabled = !count;
 
-	useEnterPressButton(buttonRef, isDisabled);
+	useEnterPressButton(() => navigate('/card'), isDisabled);
 
 	const welcomeFormId = useId();
 
@@ -42,7 +42,7 @@ export const WelcomePage = ({ title }) => {
 				</form>
 				<ButtonWrapper isDisabled={isDisabled}>
 					<Button
-						onTriggerClick={e => {
+						onClick={e => {
 							e.preventDefault();
 							navigate('/card');
 						}}

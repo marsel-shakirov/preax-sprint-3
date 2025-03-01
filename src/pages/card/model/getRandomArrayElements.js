@@ -13,16 +13,13 @@ export const getRandomArrayElements = (array, count, correctAnswer = null) => {
 	}
 
 	do {
-		// берем случайный номер от 0 до длины массива
-		const i = Math.floor(Math.random() * array.length);
-		// проверяем не брали ли уже такой
-		if (storage.has(i)) continue;
-		// запоминаем что взяли
-		storage.add(i);
-		uniqueCountries.push(array[i]);
+		const index = Math.floor(Math.random() * array.length);
+
+		if (storage.has(index)) continue;
+		storage.add(index);
+		uniqueCountries.push(array[index]);
 	} while (storage.size < count);
 
-	// перетасовать вопросы с правильным ответом
 	if (correctAnswer) {
 		function shuffle(array) {
 			let arr;

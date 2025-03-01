@@ -96,7 +96,7 @@ export const CardPage = ({ title }) => {
 		}
 	};
 
-	useEnterPressButton(buttonRef, isDisabled);
+	useEnterPressButton(() => setActiveIndex(activeIndex + 1), isDisabled);
 
 	return (
 		<>
