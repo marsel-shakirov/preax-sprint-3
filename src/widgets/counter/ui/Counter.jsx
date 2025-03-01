@@ -34,7 +34,7 @@ export const Counter = () => {
 			/>
 			<Button
 				styled={{ classes: ['counter', 'increment'] }}
-				onTriggerClick={() => dispatch({ type: 'increment' })}
+				onTriggerClick={e => dispatch({ type: 'increment' })}
 				isDisabled={count >= MAX_COUNT_VALUE}
 				ariaLabel="Добавить вопросы"
 			/>
