@@ -8,7 +8,8 @@ export const Button = ({
 	styled = { classes: ['main'] },
 	text,
 	isDisabled,
-	onTriggerClick,
+	onClick,
+	onKeyDown,
 	type = 'button',
 	form,
 	ariaLabel,
@@ -17,7 +18,8 @@ export const Button = ({
 	return (
 		<button
 			ref={ref}
-			onClick={onTriggerClick}
+			onClick={onClick}
+			onKeyDown={onKeyDown}
 			className={`${styles.btn} ${getClasses(styles, styled)}`}
 			type={type}
 			disabled={isDisabled}
@@ -33,7 +35,8 @@ Button.propTypes = {
 	styled: PropTypes.object,
 	text: PropTypes.string,
 	isDisabled: PropTypes.bool,
-	onTriggerClick: PropTypes.func,
+	onClick: PropTypes.func,
+	onKeyDown: PropTypes.func,
 	type: PropTypes.string,
 	form: PropTypes.string,
 	dataAttribute: PropTypes.string,

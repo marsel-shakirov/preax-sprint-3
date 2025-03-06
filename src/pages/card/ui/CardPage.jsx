@@ -46,7 +46,6 @@ export const CardPage = ({ title }) => {
 	const buttonRef = useRef(null);
 	const [isCheckResult, setIsCheckResult] = useState(false);
 	const [buttonText, setButtonText] = useState('Ответить');
-
 	const currentCountQuestion = activeIndex + 1;
 
 	const handleCheckedCard = () => {
@@ -76,9 +75,10 @@ export const CardPage = ({ title }) => {
 		state,
 	]);
 
+	const nextQuiz = () => buttonRef.current.click();
+
 	const handleFormSubmit = async event => {
 		event.preventDefault();
-
 		if (!isCheckResult) {
 			const formData = new FormData(event.currentTarget);
 			formAction(formData);
@@ -86,17 +86,16 @@ export const CardPage = ({ title }) => {
 			currentCountQuestion === count
 				? setButtonText('Результат')
 				: setButtonText('Дальше');
-		}
-
-		if (isCheckResult) {
+		} else {
 			setActiveIndex(activeIndex + 1);
 			setIsCheckResult(false);
 			setDisabled(true);
 			setButtonText('Ответить');
 		}
+		buttonRef.current.blur();
 	};
 
-	useEnterPressButton(buttonRef, isDisabled);
+	useEnterPressButton(nextQuiz, isDisabled);
 
 	return (
 		<>
@@ -104,6 +103,11 @@ export const CardPage = ({ title }) => {
 
 			<div className="content">
 				<form
+					onKeyDown={e => {
+						if (e.code === 'Enter') {
+							e.preventDefault();
+						}
+					}}
 					onSubmit={handleFormSubmit}
 					id={quizFormId}
 					className={styles.cardWrapper}
