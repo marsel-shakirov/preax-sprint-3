@@ -45,15 +45,11 @@ export const Counter = () => {
 			/>
 			<Button
 				styled={{ classes: ['counter', 'increment'] }}
-<<<<<<< HEAD
-				onTriggerClick={e => dispatch({ type: 'increment' })}
-=======
 				onKeyDown={handleButtonFocused}
 				onClick={event => {
 					dispatch({ type: 'increment' });
 					buttonIsNotFocused(event);
 				}}
->>>>>>> task-3-refactoring-useEnterPressButton
 				isDisabled={count >= MAX_COUNT_VALUE}
 				ariaLabel="Добавить вопросы"
 			/>
