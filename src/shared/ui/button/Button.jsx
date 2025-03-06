@@ -9,7 +9,7 @@ export const Button = ({
 	text,
 	isDisabled,
 	onClick,
-	onFocus,
+	onKeyDown,
 	type = 'button',
 	form,
 	ariaLabel,
@@ -19,7 +19,7 @@ export const Button = ({
 		<button
 			ref={ref}
 			onClick={onClick}
-			onFocus={onFocus}
+			onKeyDown={onKeyDown}
 			className={`${styles.btn} ${getClasses(styles, styled)}`}
 			type={type}
 			disabled={isDisabled}
@@ -36,7 +36,7 @@ Button.propTypes = {
 	text: PropTypes.string,
 	isDisabled: PropTypes.bool,
 	onClick: PropTypes.func,
-	onFocus: PropTypes.func,
+	onKeyDown: PropTypes.func,
 	type: PropTypes.string,
 	form: PropTypes.string,
 	dataAttribute: PropTypes.string,

@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { Button, Input } from '@/shared/ui';
 
 import { useCounterContext } from '@/shared/hooks';
@@ -8,12 +10,23 @@ import { MAX_COUNT_VALUE, MIN_COUNT_VALUE } from '@/widgets/counter/index';
 
 export const Counter = () => {
 	const { count, dispatch } = useCounterContext();
+	const [isFocused, setIsFocused] = useState(false);
+
+	const handleButtonFocused = event =>
+		event.code === 'Enter' && setIsFocused(true);
+
+	const buttonIsNotFocused = event =>
+		!isFocused ? event.target.blur() : setIsFocused(false);
 
 	return (
 		<div className={styles.counter}>
 			<Button
 				styled={{ classes: ['counter', 'decrement'] }}
-				onClick={() => dispatch({ type: 'decrement' })}
+				onKeyDown={handleButtonFocused}
+				onClick={event => {
+					dispatch({ type: 'decrement' });
+					buttonIsNotFocused(event);
+				}}
 				isDisabled={count <= MIN_COUNT_VALUE}
 				ariaLabel="Уменьшить вопросы"
 			/>
@@ -32,8 +45,10 @@ export const Counter = () => {
 			/>
 			<Button
 				styled={{ classes: ['counter', 'increment'] }}
-				onClick={() => {
+				onKeyDown={handleButtonFocused}
+				onClick={event => {
 					dispatch({ type: 'increment' });
+					buttonIsNotFocused(event);
 				}}
 				isDisabled={count >= MAX_COUNT_VALUE}
 				ariaLabel="Добавить вопросы"

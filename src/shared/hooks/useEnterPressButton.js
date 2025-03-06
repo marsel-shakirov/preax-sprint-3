@@ -3,9 +3,9 @@ import { useEffect } from 'react';
 export const useEnterPressButton = (callback, isDisabled = false) => {
 	useEffect(() => {
 		function handleEnterKeyUp(event) {
-			// const isDocumentBody = event.target.tagName === 'BODY';
-
-			if (!isDisabled && event.code === 'Enter') {
+			const isNotButton = event.target.tagName !== 'BUTTON';
+			console.log(event.target.tagName, isNotButton);
+			if (!isDisabled && isNotButton && event.code === 'Enter') {
 				callback();
 			}
 		}

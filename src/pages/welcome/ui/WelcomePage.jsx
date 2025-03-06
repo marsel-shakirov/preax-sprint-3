@@ -9,7 +9,7 @@ import {
 	usePageContext,
 } from '@/shared/hooks';
 
-import { useId, useRef } from 'react';
+import { useId } from 'react';
 
 import styles from './WelcomePage.module.css';
 
@@ -17,11 +17,11 @@ export const WelcomePage = ({ title }) => {
 	const { navigate } = usePageContext();
 	const { count } = useCounterContext();
 
-	const buttonRef = useRef(null);
-
 	const isDisabled = !count;
 
-	useEnterPressButton(() => navigate('/card'), isDisabled);
+	const handleStartQuiz = () => navigate('/card');
+
+	useEnterPressButton(handleStartQuiz, isDisabled);
 
 	const welcomeFormId = useId();
 
@@ -42,15 +42,11 @@ export const WelcomePage = ({ title }) => {
 				</form>
 				<ButtonWrapper isDisabled={isDisabled}>
 					<Button
-						onClick={e => {
-							e.preventDefault();
-							navigate('/card');
-						}}
+						onClick={handleStartQuiz}
 						isDisabled={isDisabled}
 						text="Начать"
 						type="submit"
 						form={welcomeFormId}
-						ref={buttonRef}
 					/>
 				</ButtonWrapper>
 			</section>

@@ -8,7 +8,6 @@ import {
 	usePageContext,
 	useResultContext,
 } from '@/shared/hooks';
-import { useRef } from 'react';
 
 import { RenderResultText } from './RenderResultText';
 
@@ -17,11 +16,11 @@ import styles from './ResultPage.module.css';
 export const ResultPage = ({ title }) => {
 	const { navigate } = usePageContext();
 	const { resultQuiz } = useResultContext();
-	const { count, dispatch } = useCounterContext();
+	const { count } = useCounterContext();
 
-	const buttonRef = useRef(null);
+	const handleReturnHome = () => navigate('/');
 
-	useEnterPressButton(() => navigate('/'));
+	useEnterPressButton(handleReturnHome);
 
 	return (
 		<>
@@ -34,14 +33,7 @@ export const ResultPage = ({ title }) => {
 					<RenderResultText styles={styles} result={resultQuiz} count={count} />
 				</div>
 				<ButtonWrapper>
-					<Button
-						ref={buttonRef}
-						onClick={() => {
-							dispatch({ type: 'init-one' });
-							navigate('/');
-						}}
-						text={'Попробовать еще'}
-					/>
+					<Button onClick={handleReturnHome} text={'Попробовать еще'} />
 				</ButtonWrapper>
 			</section>
 		</>
