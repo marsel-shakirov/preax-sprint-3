@@ -16,7 +16,7 @@ import {
 	QuizContainer,
 } from '@/shared/ui';
 
-import { getRandomArrayElements } from '../model/getRandomArrayElements';
+import { getQuizQuestions } from '../model/getQuizQuestions';
 
 import { action, quizQuestions } from '@/shared/api';
 
@@ -31,16 +31,7 @@ export const CardPage = ({ title }) => {
 	const [activeIndex, setActiveIndex] = useState(0);
 	const [isDisabled, setDisabled] = useState(true);
 	const [renderQuizQuestions] = useState(
-		getRandomArrayElements(quizQuestions.questions, count).map(obj => {
-			return {
-				...obj,
-				countries: getRandomArrayElements(
-					quizQuestions.countries,
-					4,
-					obj.correctAnswer
-				),
-			};
-		})
+		getQuizQuestions(quizQuestions, count)
 	);
 	const [state, formAction] = useActionState(action, []);
 	const buttonRef = useRef(null);
