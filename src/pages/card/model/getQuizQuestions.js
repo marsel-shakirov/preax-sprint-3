@@ -1,6 +1,4 @@
-import { getRandomArrayElements } from './getRandomArrayElements';
-
-import { shuffle } from '@/shared/utils/shuffle';
+import { getRandomArrayElements, shuffle } from '@/shared/utils';
 
 export const getQuizQuestions = (quizQuestions, count) => {
 	const { questions, countries } = quizQuestions;

@@ -11,6 +11,8 @@ import {
 
 import { useId } from 'react';
 
+import { PAGES } from '@/shared/constants';
+
 import styles from './WelcomePage.module.css';
 
 export const WelcomePage = ({ title }) => {
@@ -19,7 +21,7 @@ export const WelcomePage = ({ title }) => {
 
 	const isDisabled = !count;
 
-	const handleStartQuiz = () => navigate('/card');
+	const handleStartQuiz = () => navigate(PAGES.card);
 
 	useEnterPressButton(handleStartQuiz, isDisabled);
 

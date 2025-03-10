@@ -20,6 +20,8 @@ import { getQuizQuestions } from '../model/getQuizQuestions';
 
 import { action, quizQuestions } from '@/shared/api';
 
+import { PAGES } from '@/shared/constants';
+
 import styles from './CardPage.module.css';
 
 export const CardPage = ({ title }) => {
@@ -55,7 +57,7 @@ export const CardPage = ({ title }) => {
 				0
 			);
 			setResultQuiz(countOfCorrectAnswers);
-			navigate('/result');
+			navigate(PAGES.result);
 		}
 	}, [
 		currentCountQuestion,

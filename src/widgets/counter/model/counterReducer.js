@@ -17,8 +17,6 @@ export const counterReducer = (state, action) => {
 				: { count: count };
 		case 'init':
 			return { count: '' };
-		case 'init-one':
-			return { count: 1 };
 		default:
 			throw Error('Unknown action ' + action.type);
 	}

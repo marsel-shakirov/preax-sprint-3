@@ -11,6 +11,8 @@ import {
 
 import { RenderResultText } from './RenderResultText';
 
+import { PAGES } from '@/shared/constants';
+
 import styles from './ResultPage.module.css';
 
 export const ResultPage = ({ title }) => {
@@ -18,7 +20,7 @@ export const ResultPage = ({ title }) => {
 	const { resultQuiz } = useResultContext();
 	const { count } = useCounterContext();
 
-	const handleReturnHome = () => navigate('/');
+	const handleReturnHome = () => navigate(PAGES.home);
 
 	useEnterPressButton(handleReturnHome);
 

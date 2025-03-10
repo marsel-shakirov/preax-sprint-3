@@ -1,16 +1,10 @@
-import { CounterProvider } from './provider/CounterProvider';
-import { PageProvider } from './provider/PageProvider';
-import { ResultProvider } from './provider/ResultProvider';
+import { CounterProvider, PageProvider, ResultProvider } from './provider';
 
-import { Content } from '@/shared/ui';
-import { Container } from '@/shared/ui/';
+import { Container, Content } from '@/shared/ui';
 
-import { CardPage } from '@/pages/card';
-import { ResultPage } from '@/pages/result';
-import { WelcomePage } from '@/pages/welcome';
+import { CardPage, ResultPage, WelcomePage } from '@/pages';
 
-import { Footer } from '@/widgets/footer';
-import { Header } from '@/widgets/header';
+import { Footer, Header } from '@/widgets';
 
 function App() {
 	return (

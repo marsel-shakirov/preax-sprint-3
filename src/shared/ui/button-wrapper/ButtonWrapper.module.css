@@ -1,7 +1,7 @@
 .buttonWrapper {
 	display: flex;
 	flex-direction: column;
-	row-gap: var(--gap-xs);
+	row-gap: var(--gap-xxs);
 }
 
 .buttonDesc {
