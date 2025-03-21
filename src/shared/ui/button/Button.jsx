@@ -10,6 +10,7 @@ export const Button = ({
 	isDisabled,
 	onClick,
 	onKeyDown,
+	onKeyUp,
 	type = 'button',
 	form,
 	ariaLabel,
@@ -20,6 +21,7 @@ export const Button = ({
 			ref={ref}
 			onClick={onClick}
 			onKeyDown={onKeyDown}
+			onKeyUp={onKeyUp}
 			className={`${styles.btn} ${getClasses(styles, styled)}`}
 			type={type}
 			disabled={isDisabled}
@@ -37,6 +39,7 @@ Button.propTypes = {
 	isDisabled: PropTypes.bool,
 	onClick: PropTypes.func,
 	onKeyDown: PropTypes.func,
+	onKeyUp: PropTypes.func,
 	type: PropTypes.string,
 	form: PropTypes.string,
 	dataAttribute: PropTypes.string,

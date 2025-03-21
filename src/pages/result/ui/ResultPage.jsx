@@ -13,6 +13,8 @@ import { RenderResultText } from './RenderResultText';
 
 import { PAGES } from '@/shared/constants';
 
+import { resetEnterKeyDown } from '@/shared/utils';
+
 import styles from './ResultPage.module.css';
 
 export const ResultPage = ({ title }) => {
@@ -35,7 +37,11 @@ export const ResultPage = ({ title }) => {
 					<RenderResultText styles={styles} result={resultQuiz} count={count} />
 				</div>
 				<ButtonWrapper>
-					<Button onClick={handleReturnHome} text={'Попробовать еще'} />
+					<Button
+						onKeyDown={resetEnterKeyDown}
+						onClick={handleReturnHome}
+						text={'Попробовать еще'}
+					/>
 				</ButtonWrapper>
 			</section>
 		</>

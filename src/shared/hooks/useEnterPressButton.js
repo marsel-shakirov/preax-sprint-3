@@ -1,16 +1,24 @@
 import { useEffect } from 'react';
 
-export const useEnterPressButton = (callback, isDisabled = false) => {
+export const useEnterPressButton = (
+	callback,
+	isDisabled = false,
+	isTabFocusedElement = false
+) => {
 	useEffect(() => {
 		function handleEnterKeyUp(event) {
-			const isNotButton = event.target.tagName !== 'BUTTON';
+			let isNotFocusedButton = true;
 
-			if (!isDisabled && isNotButton && event.code === 'Enter') {
+			if (isTabFocusedElement) {
+				isNotFocusedButton = event.target.tagName !== 'BUTTON';
+			}
+
+			if (!isDisabled && isNotFocusedButton && event.code === 'Enter') {
 				callback();
 			}
 		}
 
 		window.addEventListener('keyup', handleEnterKeyUp);
 		return () => window.removeEventListener('keyup', handleEnterKeyUp);
-	}, [callback, isDisabled]);
+	}, [callback, isDisabled, isTabFocusedElement]);
 };

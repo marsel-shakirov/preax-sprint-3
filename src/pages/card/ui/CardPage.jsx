@@ -16,6 +16,8 @@ import {
 	QuizContainer,
 } from '@/shared/ui';
 
+import { resetEnterKeyDown } from '@/shared/utils';
+
 import { getQuizQuestions } from '../model/getQuizQuestions';
 
 import { action, quizQuestions } from '@/shared/api';
@@ -36,14 +38,11 @@ export const CardPage = ({ title }) => {
 		getQuizQuestions(quizQuestions, count)
 	);
 	const [state, formAction] = useActionState(action, []);
-	const buttonRef = useRef(null);
 	const [isCheckResult, setIsCheckResult] = useState(false);
 	const [buttonText, setButtonText] = useState('Ответить');
-	const currentCountQuestion = activeIndex + 1;
+	const buttonRef = useRef(null);
 
-	const handleCheckedCard = () => {
-		setDisabled(false);
-	};
+	const currentCountQuestion = activeIndex + 1;
 
 	useEffect(() => {
 		if (currentCountQuestion > count) {
@@ -68,14 +67,13 @@ export const CardPage = ({ title }) => {
 		state,
 	]);
 
-	const nextQuiz = () => buttonRef.current.click();
-
 	const handleFormSubmit = async event => {
 		event.preventDefault();
 		if (!isCheckResult) {
 			const formData = new FormData(event.currentTarget);
 			formAction(formData);
 			setIsCheckResult(true);
+
 			currentCountQuestion === count
 				? setButtonText('Результат')
 				: setButtonText('Дальше');
@@ -88,6 +86,12 @@ export const CardPage = ({ title }) => {
 		buttonRef.current.blur();
 	};
 
+	const handleCheckedCard = () => {
+		setDisabled(false);
+	};
+
+	const nextQuiz = () => buttonRef.current.click();
+
 	useEnterPressButton(nextQuiz, isDisabled);
 
 	return (
@@ -96,11 +100,7 @@ export const CardPage = ({ title }) => {
 
 			<div className="content">
 				<form
-					onKeyDown={e => {
-						if (e.code === 'Enter') {
-							e.preventDefault();
-						}
-					}}
+					onKeyDown={resetEnterKeyDown}
 					onSubmit={handleFormSubmit}
 					id={quizFormId}
 					className={styles.cardWrapper}
@@ -125,6 +125,7 @@ export const CardPage = ({ title }) => {
 				<div className={styles.cardInner}>
 					<ButtonWrapper isDisabled={isDisabled}>
 						<Button
+							onKeyDown={resetEnterKeyDown}
 							ref={buttonRef}
 							isDisabled={isDisabled}
 							text={buttonText}

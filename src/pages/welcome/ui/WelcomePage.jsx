@@ -20,10 +20,11 @@ export const WelcomePage = ({ title }) => {
 	const { count } = useCounterContext();
 
 	const isDisabled = !count;
+	const isTabFocusedElement = true;
 
 	const handleStartQuiz = () => navigate(PAGES.card);
 
-	useEnterPressButton(handleStartQuiz, isDisabled);
+	useEnterPressButton(handleStartQuiz, isDisabled, isTabFocusedElement);
 
 	const welcomeFormId = useId();
 
