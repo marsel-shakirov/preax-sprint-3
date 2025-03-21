@@ -14,7 +14,7 @@ export const useEnterPressButton = (
 			}
 
 			if (!isDisabled && isNotFocusedButton && event.code === 'Enter') {
-				callback();
+				callback(event);
 			}
 		}
 

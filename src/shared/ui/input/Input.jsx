@@ -13,6 +13,8 @@ export const Input = ({
 	onChange,
 	onFocus,
 	isDisabled = false,
+	isLoading = false,
+	data,
 }) => {
 	return (
 		<input
@@ -23,7 +25,8 @@ export const Input = ({
 			id={id}
 			value={value}
 			name={name}
-			disabled={isDisabled}
+			data-value={data}
+			disabled={isDisabled || isLoading}
 		></input>
 	);
 };
@@ -36,5 +39,7 @@ Input.propTypes = {
 	name: PropTypes.string,
 	onChange: PropTypes.func,
 	onFocus: PropTypes.func,
-	isDisabled: PropTypes.func,
+	isDisabled: PropTypes.bool,
+	isLoading: PropTypes.bool,
+	data: PropTypes.number,
 };

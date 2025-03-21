@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 import { useState } from 'react';
 
 import { Button, Input } from '@/shared/ui';
@@ -8,7 +10,7 @@ import styles from './Counter.module.css';
 
 import { MAX_COUNT_VALUE, MIN_COUNT_VALUE } from '@/widgets/counter/index';
 
-export const Counter = () => {
+export const Counter = ({ isLoading }) => {
 	const { count, dispatch } = useCounterContext();
 	const [isFocused, setIsFocused] = useState(false);
 
@@ -21,6 +23,7 @@ export const Counter = () => {
 	return (
 		<div className={styles.counter}>
 			<Button
+				isLoading={isLoading}
 				styled={{ classes: ['counter', 'decrement'] }}
 				onKeyDown={handleButtonFocused}
 				onClick={event => {
@@ -31,6 +34,7 @@ export const Counter = () => {
 				ariaLabel="Уменьшить вопросы"
 			/>
 			<Input
+				isLoading={isLoading}
 				type="text"
 				styled={{ classes: ['count'] }}
 				id="count"
@@ -44,6 +48,7 @@ export const Counter = () => {
 				}}
 			/>
 			<Button
+				isLoading={isLoading}
 				styled={{ classes: ['counter', 'increment'] }}
 				onKeyDown={handleButtonFocused}
 				onClick={event => {
@@ -55,4 +60,8 @@ export const Counter = () => {
 			/>
 		</div>
 	);
+};
+
+Counter.propTypes = {
+	isLoading: PropTypes.bool,
 };

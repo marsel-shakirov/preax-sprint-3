@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 
 import {
 	useCounterContext,
+	useDigitCheckedAnswer,
 	useEnterPressButton,
 	usePageContext,
 	useResultContext,
@@ -16,7 +17,7 @@ import {
 	QuizContainer,
 } from '@/shared/ui';
 
-import { resetEnterKeyDown } from '@/shared/utils';
+import { resetEnterKeyDown, setDelay } from '@/shared/utils';
 
 import { getQuizQuestions } from '../model/getQuizQuestions';
 
@@ -40,6 +41,7 @@ export const CardPage = ({ title }) => {
 	const [state, formAction] = useActionState(action, []);
 	const [isCheckResult, setIsCheckResult] = useState(false);
 	const [buttonText, setButtonText] = useState('Ответить');
+	const [isLoading, setIsLoading] = useState(false);
 	const buttonRef = useRef(null);
 
 	const currentCountQuestion = activeIndex + 1;
@@ -70,27 +72,32 @@ export const CardPage = ({ title }) => {
 	const handleFormSubmit = async event => {
 		event.preventDefault();
 		if (!isCheckResult) {
+			setIsLoading(true);
 			const formData = new FormData(event.currentTarget);
 			formAction(formData);
-			setIsCheckResult(true);
+
+			setDelay().then(() => {
+				setIsLoading(false);
+				setIsCheckResult(true);
+			});
 
 			currentCountQuestion === count
 				? setButtonText('Результат')
 				: setButtonText('Дальше');
 		} else {
-			setActiveIndex(activeIndex + 1);
-			setIsCheckResult(false);
 			setDisabled(true);
+			setIsCheckResult(false);
 			setButtonText('Ответить');
+			setActiveIndex(activeIndex + 1);
 		}
 		buttonRef.current.blur();
 	};
 
-	const handleCheckedCard = () => {
-		setDisabled(false);
-	};
+	const handleCheckedCard = () => setDisabled(false);
 
 	const nextQuiz = () => buttonRef.current.click();
+
+	useDigitCheckedAnswer(() => setDisabled(true));
 
 	useEnterPressButton(nextQuiz, isDisabled);
 
@@ -117,6 +124,8 @@ export const CardPage = ({ title }) => {
 									correctAnswer={correctAnswer}
 									countries={countries}
 									onChange={handleCheckedCard}
+									state={state}
+									isLoading={isLoading}
 								/>
 							</QuizContainer>
 						)
@@ -125,6 +134,7 @@ export const CardPage = ({ title }) => {
 				<div className={styles.cardInner}>
 					<ButtonWrapper isDisabled={isDisabled}>
 						<Button
+							isLoading={isLoading}
 							onKeyDown={resetEnterKeyDown}
 							ref={buttonRef}
 							isDisabled={isDisabled}

@@ -38,6 +38,11 @@
 	opacity: 0.5;
 }
 
+.counter.loading:disabled {
+	cursor: not-allowed;
+	opacity: 1;
+}
+
 .decrement::after,
 .increment::after {
 	display: block;

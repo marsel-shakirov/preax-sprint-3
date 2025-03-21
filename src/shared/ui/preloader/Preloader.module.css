@@ -1,0 +1,30 @@
+.preloader {
+	display: inline-flex;
+	column-gap: var(--gap-md);
+}
+
+.circle {
+	--size-circle: 14px;
+	width: var(--size-circle);
+	height: var(--size-circle);
+	background-color: var(--color-light-gray);
+	border-radius: var(--border-radius-circle);
+	animation-name: circle-to-bounce;
+	animation-duration: 0.5s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+@keyframes circle-to-bounce {
+	to {
+		transform: translateY(-3px);
+	}
+}
+
+.animateCircleTwo {
+	animation-delay: 0.3s;
+}
+
+.animateCircleTree {
+	animation-delay: 0.5s;
+}

@@ -9,6 +9,7 @@ export const Answer = ({
 	correctAnswer,
 	countries,
 	onChange,
+	isLoading,
 }) => {
 	return (
 		<fieldset className={styles.quiz}>
@@ -26,7 +27,8 @@ export const Answer = ({
 							type="radio"
 							name="answer"
 							value={country}
-							isDisabled={isCheckResult}
+							data={++index}
+							isDisabled={isLoading || isCheckResult}
 						/>
 						<span
 							className={`${styles.quizText} ${
@@ -47,4 +49,5 @@ Answer.propTypes = {
 	correctAnswer: PropTypes.string,
 	countries: PropTypes.array,
 	onChange: PropTypes.func,
+	isLoading: PropTypes.bool,
 };

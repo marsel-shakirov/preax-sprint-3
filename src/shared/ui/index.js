@@ -19,3 +19,5 @@ export { ButtonWrapper } from './button-wrapper/ButtonWrapper';
 export { Button } from './button/Button';
 
 export { Icon } from './icon/Icon';
+
+export { Preloader } from './preloader/Preloader';

@@ -9,7 +9,9 @@ import {
 	usePageContext,
 } from '@/shared/hooks';
 
-import { useId } from 'react';
+import { useEffect, useId, useState } from 'react';
+
+import { setDelay } from '@/shared/utils';
 
 import { PAGES } from '@/shared/constants';
 
@@ -19,10 +21,21 @@ export const WelcomePage = ({ title }) => {
 	const { navigate } = usePageContext();
 	const { count } = useCounterContext();
 
-	const isDisabled = !count;
+	const [isLoading, setIsLoading] = useState(false);
+	const [isDisabled, setDisabled] = useState(!count);
+
+	useEffect(() => {
+		setDisabled(!count);
+	}, [count]);
+
 	const isTabFocusedElement = true;
 
-	const handleStartQuiz = () => navigate(PAGES.card);
+	const handleStartQuiz = event => {
+		event.preventDefault();
+		setDisabled(true);
+		setIsLoading(true);
+		setDelay().then(() => navigate(PAGES.card));
+	};
 
 	useEnterPressButton(handleStartQuiz, isDisabled, isTabFocusedElement);
 
@@ -41,7 +54,7 @@ export const WelcomePage = ({ title }) => {
 				</h1>
 				<form id={welcomeFormId} className={styles.welcomeQuestion}>
 					<Label labelFor="count">Выбери количество вопросов:</Label>
-					<Counter />
+					<Counter isLoading={isLoading} />
 				</form>
 				<ButtonWrapper isDisabled={isDisabled}>
 					<Button
@@ -49,6 +62,7 @@ export const WelcomePage = ({ title }) => {
 						isDisabled={isDisabled}
 						text="Начать"
 						type="submit"
+						isLoading={isLoading}
 						form={welcomeFormId}
 					/>
 				</ButtonWrapper>

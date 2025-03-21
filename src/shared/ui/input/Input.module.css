@@ -17,6 +17,10 @@
 	transition: color var(--animate-duration);
 }
 
+.count:disabled {
+	cursor: not-allowed;
+}
+
 .cardInput {
 	position: absolute;
 	width: 1px;
@@ -36,6 +40,10 @@
 
 .count:focus {
 	color: var(--color-bright-orange);
+}
+
+.loading {
+	cursor: not-allowed;
 }
 
 @media (any-hover: hover) {

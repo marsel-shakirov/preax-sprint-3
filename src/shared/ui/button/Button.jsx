@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 
 import { getClasses } from '@/shared/utils';
 
+import { Preloader } from '..';
 import styles from './Button.module.css';
 
 export const Button = ({
@@ -15,6 +16,7 @@ export const Button = ({
 	form,
 	ariaLabel,
 	ref,
+	isLoading,
 }) => {
 	return (
 		<button
@@ -22,13 +24,15 @@ export const Button = ({
 			onClick={onClick}
 			onKeyDown={onKeyDown}
 			onKeyUp={onKeyUp}
-			className={`${styles.btn} ${getClasses(styles, styled)}`}
+			className={`${styles.btn} ${getClasses(styles, styled)} ${
+				isLoading ? styles.loading : ''
+			}`}
 			type={type}
-			disabled={isDisabled}
+			disabled={isDisabled || isLoading}
 			form={form}
 			aria-label={ariaLabel}
 		>
-			{text}
+			{isLoading && text ? <Preloader /> : text}
 		</button>
 	);
 };
@@ -45,4 +49,5 @@ Button.propTypes = {
 	dataAttribute: PropTypes.string,
 	ariaLabel: PropTypes.string,
 	ref: PropTypes.node,
+	isLoading: PropTypes.bool,
 };
