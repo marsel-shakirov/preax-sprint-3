@@ -48,15 +48,10 @@ export const CardPage = ({ title }) => {
 
 	useEffect(() => {
 		if (currentCountQuestion > count) {
-			const countOfCorrectAnswers = renderQuizQuestions.reduce(
-				(acc, element, i) => {
-					if (element.correctAnswer === state[i]) {
-						return (acc += 1);
-					}
-					return acc;
-				},
-				0
-			);
+			const countOfCorrectAnswers = renderQuizQuestions.filter(
+				(element, i) => element.correctAnswer === state[i]
+			).length;
+
 			setResultQuiz(countOfCorrectAnswers);
 			navigate(PAGES.result);
 		}
@@ -69,37 +64,46 @@ export const CardPage = ({ title }) => {
 		state,
 	]);
 
+	const handleInitialSubmit = async event => {
+		setIsLoading(true);
+		const formData = new FormData(event.currentTarget);
+		formAction(formData);
+
+		await setDelay();
+		setIsLoading(false);
+		setIsCheckResult(true);
+
+		setButtonText(currentCountQuestion === count ? 'Результат' : 'Дальше');
+	};
+
+	const handleNextQuestion = () => {
+		setDisabled(true);
+		setIsCheckResult(false);
+		setButtonText('Ответить');
+		setActiveIndex(activeIndex + 1);
+	};
+
 	const handleFormSubmit = async event => {
 		event.preventDefault();
+
 		if (!isCheckResult) {
-			setIsLoading(true);
-			const formData = new FormData(event.currentTarget);
-			formAction(formData);
-
-			setDelay().then(() => {
-				setIsLoading(false);
-				setIsCheckResult(true);
-			});
-
-			currentCountQuestion === count
-				? setButtonText('Результат')
-				: setButtonText('Дальше');
+			await handleInitialSubmit(event);
 		} else {
-			setDisabled(true);
-			setIsCheckResult(false);
-			setButtonText('Ответить');
-			setActiveIndex(activeIndex + 1);
+			handleNextQuestion();
 		}
+
 		buttonRef.current.blur();
 	};
 
-	const handleCheckedCard = () => setDisabled(false);
+	const handleCheckedCard = bool => setDisabled(bool);
 
-	const nextQuiz = () => buttonRef.current.click();
+	const handleClickButton = () => buttonRef.current.click();
 
-	useDigitCheckedAnswer(() => setDisabled(true));
+	useDigitCheckedAnswer(handleCheckedCard);
 
-	useEnterPressButton(nextQuiz, isDisabled);
+	useEnterPressButton(handleClickButton, isDisabled);
+
+	console.log(renderQuizQuestions);
 
 	return (
 		<>

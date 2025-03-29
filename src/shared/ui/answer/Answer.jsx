@@ -23,7 +23,7 @@ export const Answer = ({
 					<Label key={`${country}_${index}`}>
 						<RadioButton
 							styled={{ classes: ['cardInput'] }}
-							onChange={onChange}
+							onChange={() => onChange(false)}
 							type="radio"
 							name="answer"
 							value={country}

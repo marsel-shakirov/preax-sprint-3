@@ -50,5 +50,4 @@ export const ResultPage = ({ title }) => {
 
 ResultPage.propTypes = {
 	title: PropTypes.string,
-	result: PropTypes.string,
 };

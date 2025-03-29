@@ -13,6 +13,7 @@ export const getQuizQuestions = (quizQuestions, count) => {
 			3,
 			correctAnswers
 		);
+
 		return {
 			...obj,
 			countries: shuffle([...randomCountries, correctAnswer]),

@@ -39,6 +39,6 @@ export const RenderResultText = ({ styles, result, count }) => {
 
 RenderResultText.propTypes = {
 	styles: PropTypes.object,
-	result: PropTypes.string.isRequired,
-	count: PropTypes.string.isRequired,
+	result: PropTypes.number.isRequired,
+	count: PropTypes.number.isRequired,
 };
