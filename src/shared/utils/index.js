@@ -9,3 +9,5 @@ export { getRandomArrayElements } from './getRandomArrayElements';
 export { resetEnterKeyDown } from './resetKeyDown';
 
 export { setDelay } from './setDelay';
+
+export { unSubscribe } from './unSubscribe';

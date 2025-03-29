@@ -1,8 +1,4 @@
-export const getRandomArrayElements = (
-	array,
-	count,
-	unSubscribeElements = []
-) => {
+export const getRandomArrayElements = (array, count, unSubscribe = null) => {
 	const isCountMoreThanArrayLength = count > array.length;
 	const isCountLessThanOne = count < 1;
 	if (isCountLessThanOne || isCountMoreThanArrayLength) return null;
@@ -12,7 +8,7 @@ export const getRandomArrayElements = (
 
 	while (storage.size < count) {
 		const index = Math.floor(Math.random() * array.length);
-		const isElement = unSubscribeElements.includes(array[index]);
+		const isElement = unSubscribe ? unSubscribe(array[index]) : null;
 
 		if (isElement || storage.has(index)) continue;
 		storage.add(index);

@@ -1,18 +1,26 @@
-import { getRandomArrayElements, shuffle } from '@/shared/utils';
+import { getRandomArrayElements, shuffle, unSubscribe } from '@/shared/utils';
 
 export const getQuizQuestions = (quizQuestions, count) => {
 	const { questions, countries } = quizQuestions;
-	const correctAnswers = [];
+
+	const store = {
+		beforeAnswers: [],
+		beforeCountries: [],
+	};
+
+	const unSubscribeStoreElements = unSubscribe(store);
 
 	return getRandomArrayElements(questions, count).map(obj => {
 		const correctAnswer = obj.correctAnswer;
-		correctAnswers.push(correctAnswer);
+		store.beforeAnswers.push(correctAnswer);
 
 		const randomCountries = getRandomArrayElements(
 			countries,
 			3,
-			correctAnswers
+			unSubscribeStoreElements
 		);
+
+		store.beforeCountries = [...randomCountries];
 
 		return {
 			...obj,
