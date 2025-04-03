@@ -10,7 +10,7 @@ import styles from './Counter.module.css';
 
 import { MAX_COUNT_VALUE, MIN_COUNT_VALUE } from '@/widgets/counter/index';
 
-export const Counter = ({ isLoading }) => {
+export const Counter = ({ isLoading, labelFormId }) => {
 	const { count, dispatch } = useCounterContext();
 	const [isFocused, setIsFocused] = useState(false);
 
@@ -37,7 +37,7 @@ export const Counter = ({ isLoading }) => {
 				isLoading={isLoading}
 				type="text"
 				styled={{ classes: ['count'] }}
-				id="count"
+				id={labelFormId}
 				value={count}
 				onFocus={() => dispatch({ type: 'init' })}
 				onChange={event => {
@@ -64,4 +64,5 @@ export const Counter = ({ isLoading }) => {
 
 Counter.propTypes = {
 	isLoading: PropTypes.bool,
+	labelFormId: PropTypes.string,
 };

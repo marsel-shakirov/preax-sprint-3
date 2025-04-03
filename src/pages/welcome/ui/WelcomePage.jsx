@@ -40,6 +40,7 @@ export const WelcomePage = ({ title }) => {
 	useEnterPressButton(handleStartQuiz, isDisabled, isTabFocusedElement);
 
 	const welcomeFormId = useId();
+	const labelFormId = useId();
 
 	return (
 		<>
@@ -53,8 +54,8 @@ export const WelcomePage = ({ title }) => {
 					</span>
 				</h1>
 				<form id={welcomeFormId} className={styles.welcomeQuestion}>
-					<Label labelFor="count">Выбери количество вопросов:</Label>
-					<Counter isLoading={isLoading} />
+					<Label labelFor={labelFormId}>Выбери количество вопросов:</Label>
+					<Counter labelFormId={labelFormId} isLoading={isLoading} />
 				</form>
 				<ButtonWrapper isDisabled={isDisabled}>
 					<Button
@@ -73,5 +74,4 @@ export const WelcomePage = ({ title }) => {
 
 WelcomePage.propTypes = {
 	title: PropTypes.string,
-	onStartQuiz: PropTypes.func,
 };

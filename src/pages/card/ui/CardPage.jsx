@@ -103,8 +103,6 @@ export const CardPage = ({ title }) => {
 
 	useEnterPressButton(handleClickButton, isDisabled);
 
-	console.log(renderQuizQuestions);
-
 	return (
 		<>
 			<title>{`QuizApp | ${title}`}</title>
