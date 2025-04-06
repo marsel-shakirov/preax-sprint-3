@@ -3,24 +3,24 @@ import { getRandomArrayElements, shuffle, unSubscribe } from '@/shared/utils';
 export const getQuizQuestions = (quizQuestions, count) => {
 	const { questions, countries } = quizQuestions;
 
-	const store = {
+	const previousElements = {
 		beforeAnswers: [],
 		beforeCountries: [],
 	};
 
-	const unSubscribeStoreElements = unSubscribe(store);
+	const unSubscribePreviousElements = unSubscribe(previousElements);
 
 	return getRandomArrayElements(questions, count).map(obj => {
 		const correctAnswer = obj.correctAnswer;
-		store.beforeAnswers.push(correctAnswer);
+		previousElements.beforeAnswers.push(correctAnswer);
 
 		const randomCountries = getRandomArrayElements(
 			countries,
 			3,
-			unSubscribeStoreElements
+			unSubscribePreviousElements
 		);
 
-		store.beforeCountries = [...randomCountries];
+		previousElements.beforeCountries = [...randomCountries];
 
 		return {
 			...obj,

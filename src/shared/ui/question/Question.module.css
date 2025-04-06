@@ -7,7 +7,7 @@
 
 .quizPicture {
 	border-radius: var(--border-radius-main);
-	object-fit: cover;
+	height: 100%;
 }
 
 .quizTitle {
