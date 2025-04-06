@@ -110,4 +110,4 @@ P.s если есть решение с `object-fit` без срезания с�
 ### Ссылки
 
 - Only desktop version
-  - Live Site URL **Versel**: [QuizApp](https://fmentor-contact-form.vercel.app 'QuizApp')
+  - Live Site URL **Versel**: [QuizApp](https://preax-sprint-3.vercel.app 'QuizApp')
