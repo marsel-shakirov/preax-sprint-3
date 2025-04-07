@@ -39,6 +39,21 @@
 .resultTitle {
 	--font-weight-result: var(--font-weight-bold);
 	margin-block: 0;
-	font-size: var(--font-size-xlg);
+	font-size: var(--font-size-xxlg);
 	font-weight: var(--font-weight-result);
+}
+
+@media (max-width: 767px) {
+	.resultImage {
+		--size-resultImage: 163px;
+		background-image: url(/assets/images/illustration/result-mobile.png);
+	}
+
+	.resultWrapper {
+		row-gap: var(--gap-xxs);
+	}
+	.resultTitle {
+		font-size: var(--font-size-lg);
+		line-height: 1.16;
+	}
 }

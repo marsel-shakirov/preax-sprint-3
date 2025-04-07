@@ -22,3 +22,9 @@
 .buttonEnter::after {
 	content: ' ↵';
 }
+
+@media (max-width: 1279px) {
+	.buttonDesc {
+		display: none;
+	}
+}

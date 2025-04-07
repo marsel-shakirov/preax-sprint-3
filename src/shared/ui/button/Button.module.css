@@ -110,7 +110,48 @@
 	:not(.btn:disabled):where(.counter:hover) {
 		--color-counter: var(--color-bright-orange);
 	}
+
 	.close:hover {
 		color: var(--color-translucent-blue);
+	}
+}
+
+@media (max-width: 767px) {
+	.main {
+		min-width: 194px;
+		min-height: 50px;
+		font-size: var(--font-size-xsm);
+		line-height: 1.28;
+	}
+
+	.counter {
+		--size-counter: 40px;
+		border: 2.5px solid currentColor;
+	}
+
+	.decrement::after,
+	.increment::after {
+		transform: translate(75%, -44%);
+		width: 14px;
+		height: 3px;
+	}
+
+	.increment::before {
+		transform: translate(16px, -49%);
+		width: 3px;
+		height: 14px;
+	}
+
+	.close {
+		--size-btnClose: 24px;
+		border: var(--border-width-xs) solid currentColor;
+	}
+
+	.close::before,
+	.close::after {
+		top: 9px;
+		left: 3.5px;
+		width: 13px;
+		height: 2px;
 	}
 }

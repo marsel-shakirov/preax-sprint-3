@@ -14,10 +14,12 @@
 	--color-translucent-blue: rgba(18, 83, 101, 0.7);
 
 	--font-size-base: 62.5%;
-	--font-size-xlg: 3.6rem;
-	--font-size-lg: 2.8rem;
+	--font-size-xxlg: 3.6rem;
+	--font-size-xlg: 2.8rem;
+	--font-size-lg: 2.4rem;
 	--font-size-md: 2rem;
-	--font-size-sm: 1.4rem;
+	--font-size-sm: 1.8rem;
+	--font-size-xsm: 1.4rem;
 	--font-size-xs: 1rem;
 
 	--font-weight-regular: 400;
@@ -33,6 +35,7 @@
 
 	--padding-lg: 4.2rem;
 	--padding-md: 3.2rem;
+	--padding-xmd: 2.4rem;
 	--padding-sm: 1.6rem;
 	--padding-xs: 1.2rem;
 
@@ -48,16 +51,22 @@
 	--border-width-xthin: 1px;
 
 	--deg: 45deg;
-	--c1: var(--color-dark-blue) 43%;
-	--c2: #ff723f 43% 53.5%;
-	--c3: var(--color-bright-orange) 53.5% 81%;
-	--c4: #ffca4a 81%;
+	--c1: var(--color-dark-blue);
+	--c2: #ff723f;
+	--c3: var(--color-bright-orange);
+	--c4: #ffca4a;
 	--gradient-body: linear-gradient(
 		var(--deg),
-		var(--c1),
-		var(--c2),
-		var(--c3),
-		var(--c4)
+		var(--c1) 43%,
+		var(--c2) 43% 54.5%,
+		var(--c3) 54.5% 81%,
+		var(--c4) 81%
+	);
+	--gradient-body-mobile: linear-gradient(
+		var(--deg),
+		var(--c1) 37%,
+		var(--c2) 37% 58%,
+		var(--c3) 58% 81%
 	);
 
 	--animate-duration: 0.2s;

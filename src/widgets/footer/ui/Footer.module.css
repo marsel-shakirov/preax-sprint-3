@@ -1,5 +1,5 @@
 .preax {
-	font-size: var(--font-size-sm);
+	font-size: var(--font-size-xsm);
 	line-height: 1.14;
 	font-weight: var(--font-weight-regular);
 	color: var(--color-light-gray);
@@ -16,5 +16,12 @@
 @media (any-hover: hover) {
 	.link:hover {
 		opacity: 0.7;
+	}
+}
+
+@media (max-width: 767px) {
+	.preax {
+		font-size: var(--font-size-xs);
+		line-height: 1.2;
 	}
 }

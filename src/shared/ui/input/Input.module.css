@@ -5,7 +5,7 @@
 	width: 118px;
 	height: 76px;
 	padding: var(--padding-sm);
-	font-size: var(--font-size-xlg);
+	font-size: var(--font-size-xxlg);
 	line-height: 1.3;
 	font-weight: var(--font-weight-bold);
 	color: var(--color-dark-blue);
@@ -49,5 +49,16 @@
 @media (any-hover: hover) {
 	.count:hover {
 		color: var(--color-bright-orange);
+	}
+}
+
+@media (max-width: 767px) {
+	.count {
+		width: 88px;
+		height: 52px;
+		padding: var(--padding-xs);
+		font-size: var(--font-size-lg);
+		line-height: 1.16;
+		border: 2.5px solid currentColor;
 	}
 }
