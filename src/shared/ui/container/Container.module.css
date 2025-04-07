@@ -2,7 +2,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-width: var(--container-min-width);
+	min-width: 375px;
 	height: max(812px, 100dvh);
 	padding-inline: var(--padding-md);
 }
@@ -12,4 +12,22 @@
 	flex-direction: column;
 	row-gap: var(--gap-md);
 	width: 590px;
+}
+
+@media (max-width: 1279px) {
+	.container {
+		height: max(600px, 100dvh);
+		padding-inline: var(--padding-xmd);
+	}
+}
+
+@media (max-width: 767px) {
+	.container {
+		height: max(450px, 100dvh);
+		padding-inline: var(--padding-sm);
+	}
+
+	.wrapper {
+		row-gap: var(--gap-xxs);
+	}
 }

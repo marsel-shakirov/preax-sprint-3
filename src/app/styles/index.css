@@ -1,50 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..900&display=swap');
 
-@import url(@/app/styles/normalize/normalize.css);
-
-@import url(@/app/styles/variables/variables.css);
-
-:root {
-	font-size: var(--font-size-base);
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
-body {
-	font-family: var(--font-family);
-	font-optical-sizing: none;
-	font-weight: var(--font-weight-medium);
-	font-style: normal;
-	font-size: var(--font-size-lg);
-	line-height: 1.2;
-	color: var(--color-dark-blue);
-	background-image: var(--gradient-body);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-attachment: fixed;
-}
-
-.content {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	row-gap: var(--gap);
-	padding: var(--padding-md);
-	background-color: var(--color-light-gray);
-	border-radius: var(--border-radius-main);
-}
-
-.visually-hidden {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	margin: -1px;
-	border: 0;
-	padding: 0;
-	white-space: nowrap;
-	clip-path: inset(100%);
-	clip: rect(0 0 0 0);
-	overflow: hidden;
-}
+@import url('@/app/styles/normalize.css');
+@import url('@/app/styles/utils.css');
+@import url('@/app/styles/variables.css');
+@import url('@/app/styles/globals.css');

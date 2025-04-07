@@ -1,5 +1,13 @@
 .label:has(input[type='radio'] + span) {
 	position: relative;
-	height: 56px;
+	min-height: 56px;
 	font-size: var(--font-size-md);
+}
+
+@media (max-width: 767px) {
+	.label:has(input[type='radio'] + span) {
+		min-height: 42px;
+		font-size: var(--font-size-xsm);
+		line-height: 1.28;
+	}
 }

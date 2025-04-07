@@ -15,3 +15,15 @@
 	letter-spacing: 0.7px;
 	padding-top: calc(52px / 2);
 }
+
+@media (max-width: 767px) {
+	.cardWrapper {
+		row-gap: var(--gap-md);
+	}
+
+	.cardCount {
+		font-size: var(--font-size-xsm);
+		line-height: 1.28;
+		padding-top: calc(36px / 2);
+	}
+}

@@ -17,7 +17,7 @@
 
 .welcomeTitle {
 	max-width: 375px;
-	font-size: var(--font-size-xlg);
+	font-size: var(--font-size-xxlg);
 	line-height: 1.23;
 	font-weight: var(--font-weight-bold);
 	text-align: center;
@@ -26,7 +26,7 @@
 .welcomeDesc {
 	display: block;
 	margin-top: 0.8rem;
-	font-size: var(--font-size-lg);
+	font-size: var(--font-size-xlg);
 	font-weight: var(--font-weight-medium);
 	line-height: 1.15;
 }
@@ -37,4 +37,22 @@
 	align-items: center;
 	justify-content: center;
 	row-gap: var(--gap-sm);
+}
+
+@media (max-width: 767px) {
+	.welcome::after {
+		width: 90px;
+		height: 97px;
+		top: -61px;
+	}
+
+	.welcomeTitle {
+		font-size: var(--font-size-lg);
+		line-height: 1.16;
+	}
+
+	.welcomeDesc {
+		font-size: var(--font-size-sm);
+		line-height: 1.22;
+	}
 }

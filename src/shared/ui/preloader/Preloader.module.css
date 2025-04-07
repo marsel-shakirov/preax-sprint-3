@@ -28,3 +28,9 @@
 .animateCircleTree {
 	animation-delay: 0.5s;
 }
+
+@media (max-width: 767px) {
+	.circle {
+		--size-circle: 10px;
+	}
+}
