@@ -2,7 +2,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	min-width: 375px;
+	min-width: 337px;
 	height: max(812px, 100dvh);
 	padding-inline: var(--padding-md);
 }

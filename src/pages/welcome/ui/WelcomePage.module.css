@@ -56,3 +56,9 @@
 		line-height: 1.22;
 	}
 }
+
+@media (max-width: 374px) {
+	.welcome::after {
+		top: -68px;
+	}
+}
