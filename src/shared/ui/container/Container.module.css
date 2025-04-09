@@ -16,7 +16,7 @@
 
 @media (max-width: 1279px) {
 	.container {
-		height: max(600px, 100dvh);
+		height: max(730px, 100dvh);
 		padding-inline: var(--padding-xmd);
 	}
 }

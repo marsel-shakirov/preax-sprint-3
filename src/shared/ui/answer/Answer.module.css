@@ -65,13 +65,13 @@ input[type='radio']:checked + .quizText.wrongAnswer {
 }
 
 input[type='radio']:checked + .quizText.wrongAnswer::after {
-	content: url('./assets/svg/error.svg');
+	content: url('/assets/svg/error.svg');
 	position: absolute;
 	right: 17px;
 }
 
 input[type='radio'] + .quizText.rightAnswer::after {
-	content: url('./assets/svg/access.svg');
+	content: url('/assets/svg/access.svg');
 	position: absolute;
 	right: 17px;
 }
@@ -94,11 +94,11 @@ input[type='radio'] + .quizText.rightAnswer::after {
 	}
 
 	input[type='radio']:checked + .quizText.wrongAnswer::after {
-		content: url('./assets/svg/error-mobile.svg');
+		content: url('/assets/svg/error-mobile.svg');
 	}
 
 	input[type='radio'] + .quizText.rightAnswer::after {
-		content: url('./assets/svg/access-mobile.svg');
+		content: url('/assets/svg/access-mobile.svg');
 	}
 
 	input[type='radio']:checked + .quizText.wrongAnswer::after,
