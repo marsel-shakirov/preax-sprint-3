@@ -125,21 +125,21 @@
 	}
 
 	.counter {
-		--size-counter: 40px;
+		--size-counter: 33px;
 		border: 2.5px solid currentColor;
 	}
 
 	.decrement::after,
 	.increment::after {
-		transform: translate(75%, -44%);
-		width: 14px;
-		height: 3px;
+		transform: translate(67%, -44%);
+		width: 12px;
+		height: 2.5px;
 	}
 
 	.increment::before {
-		transform: translate(16px, -49%);
-		width: 3px;
-		height: 14px;
+		transform: translate(13px, -49%);
+		width: 2.5px;
+		height: 12px;
 	}
 
 	.close {
